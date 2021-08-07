@@ -1,28 +1,451 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
 header {
-  flex: 0 1 auto;
-  background: #F1E4E6;
+  display: flex;
+  flex-direction: column;
 }
 
-main {
+.content {
   flex: 1 1 auto;
 }
 
 footer {
-  flex: 0 1 auto;
   background: #222224;
 }
 
 .container {
-  width: 1140px;
+  max-width: 1140px;
+  min-width: 1024px;
   margin: 0 auto;
+  padding: 0 16px;
 }
 
+/* || HEADER-TOP */
+
+.header-top {
+  background: #222224;
+}
+
+.header-top>.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* цвет кнопок SVG */
+
+.icon {
+  fill: #E8E8E8;
+  transition: fill 0.4s;
+}
+
+/*  | Логотип */
+
+.logo {
+  display: block;
+  padding: 19px 36px 19px 0;
+  font: 0px/0 "Lato";
+}
+
+/*  | Форма для поиска */
+
+.search-box {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+}
+
+/*  | Кнопка поиска */
+
+.search-box_button {
+  display: flex;
+  align-items: flex-end;
+  padding: 19px 20px 19px 5px;
+  background: none;
+  border: none;
+  font: 0px/0 "Lato";
+}
+
+/* эффект наведения на кнопку (курсор) */
+
+.search-box_button:hover {
+  cursor: pointer;
+}
+
+/* эффект наведения на кнопку (цвет) */
+
+.search-box_button:hover .icon {
+  fill: #E05C6E;
+}
+
+/*  | Строка поиска */
+
+/* скрытие <label> для строки поиска*/
+
+label[for="search-line"] {
+  font: 0px/0 "Lato";
+}
+
+.search-box_input {
+  flex: 1 1 auto;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 19px;
+  font: 14px/1.2 "Lato";
+  background: #E1E1E1;
+  opacity: 0;
+  transition: opacity 400ms;
+}
+
+/* эффект наведения для строки поиска */
+
+.search-box:hover .search-box_input {
+  opacity: 1;
+}
+
+/* эффект получения фокуса для строки поиска */
+
+.search-box_input:focus {
+  outline: none;
+  opacity: 1;
+}
+
+/*  | Главное меню */
+
+.main-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font: 0px/0 "Lato";
+}
+
+/*  | Кнопки главного меню */
+
+.main-menu_items {
+  display: flex;
+  align-items: flex-end;
+}
+
+.main-menu_items_button {
+  display: flex;
+  align-items: flex-end;
+  padding: 19px 16.5px 19px 16.5px;
+  background: none;
+  border: none;
+}
+
+/* задание отступа для левой кнопки */
+
+.main-menu_items:first-of-type .main-menu_items_button {
+  padding-left: 20px;
+}
+
+/* задание отступа для правой кнопки */
+
+.main-menu_items:last-of-type .main-menu_items_button {
+  padding-right: 6px;
+}
+
+/* для позиционирования количества товаров в корзине */
+
+.cart-button {
+  position: relative;
+}
+
+/* количество товаров в корзине */
+
+.cart-button::after {
+  content: "5";
+  display: block;
+  position: absolute;
+  padding: 2px 6px;
+  top: 20px;
+  right: 0;
+  background: #F16D7F;
+  border-radius: 10px;
+  font: 12px/1.2 "Lato";
+  color: #FFF;
+}
+
+/* эффект наведения на кнопки (цвет) */
+
+.main-menu_items_button:hover .icon {
+  fill: #E05C6E;
+}
+
+/* эффект наведения на кнопку (курсор) */
+
+.pop-up-menu-button:hover {
+  cursor: pointer;
+}
+
+/* || HEADER-BOTTOM */
+
+.header-bottom {
+  display: flex;
+  min-height: 764px;
+  background: #F1E4E6;
+}
+
+.header-bottom>.container {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  background: url(../images/header-bottom_background.png) no-repeat;
+  background-position: left -226px bottom;
+}
+
+/*  | Слоган */
+
+.tagline {
+  display: flex;
+  width: 405px;
+  margin: 290px 99px 0 0;
+  padding: 0 0 0 16px;
+  font: 900 48px/1em "Lato";
+}
+
+.text_bold {
+  font: 700 32px/1.2 "Lato";
+}
+
+.text_bold_pink {
+  font: 700 32px/1.2 "Lato";
+  color: #F16D7F;
+}
+
+.tagline-decoration {
+  display: block;
+  margin-right: 16px;
+  width: 12px;
+  background: #F16D7F;
+  /* разница выстоты строки 1.15 и шрифта 48px */
+  margin-top: calc(48px * 0.15);
+  /* разница выстоты строки 1.2 и шрифта 32px */
+  margin-bottom: calc(32px * 0.2);
+}
+
+/* || CONTENT */
+
+.content>.container {
+  display: flex;
+  flex-direction: column;
+}
+
+/*  | Меню категорий товаров */
+
+.category-menu {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: calc(20px + 100% * 45 /116 - 1024px * 45 / 116);
+  margin-bottom: 90px;
+  padding-left: 0;
+  list-style: none;
+}
+
+.category-menu_items {
+  display: block;
+  margin-right: calc(100% * 30 / 1140);
+  flex: 1 1 239px;
+}
+
+.category-menu_items:last-of-type {
+  margin-right: 0;
+  margin-top: calc(100% * 30 / 1140);
+  flex: 2 1 735px;
+}
+
+.category-menu_items:nth-last-of-type(2) {
+  margin-right: 0;
+}
+
+/* вычисление высоты кнопок в зависимости от соотношения сторон
+   картинок для фона */
+
+.calc-button-height {
+  position: relative;
+  padding-top: calc(100% * 260 / 360);
+}
+
+/* вычисление высоты последней кнопки в зависимости от соотношения сторон
+   картинки для фона */
+
+.category-menu_items:last-of-type .calc-button-height {
+  padding-top: calc(100% * 180 / 1140);
+}
+
+.category-menu_button {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  font: 700 24px/1.2 "Lato";
+  text-decoration: none;
+  text-align: center;
+  color: #F16D7F;
+  background-color: rgba(33, 22, 22, 0.7);
+  transition: background-color 0.4s;
+  overflow: hidden;
+}
+
+.category-menu_items:nth-child(1) .category-menu_button:before {
+  content: "30% OFF";
+  font: 400 16px/1.2 "Lato";
+  color: #FFF;
+}
+
+.category-menu_items:nth-child(2) .category-menu_button:before {
+  content: "HOT DEAL";
+  font: 400 16px/1.2 "Lato";
+  color: #FFF;
+}
+
+.category-menu_items:nth-child(3) .category-menu_button:before {
+  content: "NEW ARRIVALS";
+  font: 400 16px/1.2 "Lato";
+  color: #FFF;
+}
+
+.category-menu_items:nth-child(4) .category-menu_button:before {
+  content: "LUXIROUS & TRENDY";
+  font: 400 16px/1.2 "Lato";
+  color: #FFF;
+}
+
+.for-women_button {
+  background: url(../images/button_for-women.jpg) no-repeat center / cover;
+}
+
+.for-men_button {
+  background: url(../images/button_for-men.jpg) no-repeat center / cover;
+}
+
+.for-kids_button {
+  background: url(../images/button_for-kids.jpg) no-repeat center / cover;
+}
+
+.accesories_button {
+  background: url(../images/button_accesories.jpg) no-repeat center / cover;
+}
+
+/* эффект наведения для кнопок меню категорий товаров */
+
+.category-menu_button:hover {
+  background-color: rgba(33, 22, 22, 0.1);
+}
+
+/* эффект при получении фокуса для кнопок меню категорий товаров */
+
+.category-menu_button:focus {
+  background-color: rgba(33, 22, 22, 0.1);
+}
+
+/* || FETURED-ITEMS */
+
+.fetured-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.fetured-items_heading {
+  margin: 6px 0;
+  padding: 0 18px;
+  font: 400 30px/1.2 "Lato";
+  text-align: center;
+}
+
+.fetured-items_text {
+  margin: 0;
+  padding: 0 18px;
+  font: 400 14px/1.2 "Lato";
+  text-align: center;
+}
+
+.fetured-items_container {
+  margin: 48px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 360px);
+  justify-content: center;
+  grid-gap: 30px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin: 0;
+  width: 360px;
+  min-height: 581px;
+  background: #F8F8F8;
+}
+
+.item-info {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  margin: 25px 20px 20px 20px;
+  padding-right: 8px;
+  font: 300 14px/1.2 "Lato";
+}
+
+.item-info_name {
+  flex: 0 1 auto;
+  margin: 0 0 13px 0;
+  font: 400 13px/1.2 "Lato";
+}
+
+.item-info_discription {
+  flex: 1 1 auto;
+  margin: 0 0 18px 0;
+  color: #5D5D5D;
+}
+
+.item-info_price {
+  margin: 0;
+  justify-self: flex-end;
+  font: 400 16px/1.2 "Lato";
+  color: #F16D7F;
+}
+
+.fetured-items_button {
+  align-self: center;
+  display: block;
+  box-sizing: border-box;
+  margin-bottom: 95px;
+  padding: 14px 38px;
+  border: 1px solid #FF6A6A;
+  text-decoration: none;
+  font: 400 16px/1.2 "Lato";
+  color: #FF6A6A;
+  background-color: #FFF;
+  transition: background-color 0.4s, border 0.4s, color 0.4s;
+}
+
+.fetured-items_button:hover {
+  background-color: #F16D7F;
+  border: 1px solid #F16D7F;
+  color: #FFF;
+}
+
+/* || FOOTER-TOP */
+
+.service-menu {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+}
