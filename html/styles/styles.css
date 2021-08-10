@@ -1,14 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
 body {
   font-family: "Lato", sans-serif;
+}
+
+.wrapper {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-}
-
-header {
-  display: flex;
-  flex-direction: column;
+  min-width: 1024px;
 }
 
 .content {
@@ -21,7 +20,6 @@ footer {
 
 .container {
   max-width: 1140px;
-  min-width: 1024px;
   margin: 0 auto;
   padding: 0 16px;
 }
@@ -34,12 +32,11 @@ footer {
 
 .header-top>.container {
   display: flex;
-  justify-content: space-between;
 }
 
 /* цвет кнопок SVG */
 
-.icon {
+.icon-color {
   fill: #E8E8E8;
   transition: fill 0.4s;
 }
@@ -50,6 +47,10 @@ footer {
   display: block;
   padding: 19px 36px 19px 0;
   font: 0px/0 "Lato";
+}
+
+.logo:focus {
+  outline: none;
 }
 
 /*  | Форма для поиска */
@@ -79,17 +80,22 @@ footer {
 
 /* эффект наведения на кнопку (цвет) */
 
-.search-box_button:hover .icon {
-  fill: #E05C6E;
+.search-box_button:hover .icon-color {
+  fill: #F16D7F;
+}
+
+/* эффект получения фокуса кнопкой */
+
+.search-box_button:focus {
+  outline: none;
+}
+
+.search-box_button:focus .icon-color {
+  fill: #F16D7F;
+  outline: none;
 }
 
 /*  | Строка поиска */
-
-/* скрытие <label> для строки поиска*/
-
-label[for="search-line"] {
-  font: 0px/0 "Lato";
-}
 
 .search-box_input {
   flex: 1 1 auto;
@@ -140,25 +146,25 @@ label[for="search-line"] {
   border: none;
 }
 
-/* задание отступа для левой кнопки */
+/* задание отступа для первой кнопки */
 
 .main-menu_items:first-of-type .main-menu_items_button {
   padding-left: 20px;
 }
 
-/* задание отступа для правой кнопки */
+/* задание отступа для последней кнопки */
 
 .main-menu_items:last-of-type .main-menu_items_button {
   padding-right: 6px;
 }
 
-/* для позиционирования количества товаров в корзине */
+/* для позиционирования блока с количеством товаров в корзине */
 
 .cart-button {
   position: relative;
 }
 
-/* количество товаров в корзине */
+/* блок с количеством товаров в корзине */
 
 .cart-button::after {
   content: "5";
@@ -173,16 +179,26 @@ label[for="search-line"] {
   color: #FFF;
 }
 
-/* эффект наведения на кнопки (цвет) */
-
-.main-menu_items_button:hover .icon {
-  fill: #E05C6E;
-}
-
 /* эффект наведения на кнопку (курсор) */
 
 .pop-up-menu-button:hover {
   cursor: pointer;
+}
+
+/* эффект наведения на кнопки (цвет) */
+
+.main-menu_items_button:hover .icon-color {
+  fill: #F16D7F;
+}
+
+/* эффект получения фокуса кнопкой */
+
+.main-menu_items_button:focus {
+  outline: none;
+}
+
+.main-menu_items_button:focus .icon-color {
+  fill: #F16D7F;
 }
 
 /* || HEADER-BOTTOM */
@@ -195,11 +211,9 @@ label[for="search-line"] {
 
 .header-bottom>.container {
   flex: 1 1 auto;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
+  position: relative;
   background: url(../images/header-bottom_background.png) no-repeat;
-  background-position: left -226px bottom;
+  background-position: left -210px bottom;
 }
 
 /*  | Слоган */
@@ -207,16 +221,19 @@ label[for="search-line"] {
 .tagline {
   display: flex;
   width: 405px;
-  margin: 290px 99px 0 0;
   padding: 0 0 0 16px;
   font: 900 48px/1em "Lato";
+  position: absolute;
+  left: calc(100% - 500px);
+  top: 303px;
+  text-transform: uppercase;
 }
 
-.text_bold {
+.tagline .text_bold {
   font: 700 32px/1.2 "Lato";
 }
 
-.text_bold_pink {
+.tagline .text_bold_pink {
   font: 700 32px/1.2 "Lato";
   color: #F16D7F;
 }
@@ -224,7 +241,7 @@ label[for="search-line"] {
 .tagline-decoration {
   display: block;
   margin-right: 16px;
-  width: 12px;
+  flex: 0 0 12px;
   background: #F16D7F;
   /* разница выстоты строки 1.15 и шрифта 48px */
   margin-top: calc(48px * 0.15);
@@ -245,25 +262,25 @@ label[for="search-line"] {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin-top: calc(20px + 100% * 45 /116 - 1024px * 45 / 116);
+  margin-top: calc(20px + 100% * 45 /116 - 992px * 45 / 116);
   margin-bottom: 90px;
   padding-left: 0;
   list-style: none;
 }
 
-.category-menu_items {
+.category-menu_item {
   display: block;
   margin-right: calc(100% * 30 / 1140);
   flex: 1 1 239px;
 }
 
-.category-menu_items:last-of-type {
+.category-menu_item:last-of-type {
   margin-right: 0;
   margin-top: calc(100% * 30 / 1140);
   flex: 2 1 735px;
 }
 
-.category-menu_items:nth-last-of-type(2) {
+.category-menu_item:nth-last-of-type(2) {
   margin-right: 0;
 }
 
@@ -278,7 +295,7 @@ label[for="search-line"] {
 /* вычисление высоты последней кнопки в зависимости от соотношения сторон
    картинки для фона */
 
-.category-menu_items:last-of-type .calc-button-height {
+.category-menu_item:last-of-type .calc-button-height {
   padding-top: calc(100% * 180 / 1140);
 }
 
@@ -296,35 +313,44 @@ label[for="search-line"] {
   font: 700 24px/1.2 "Lato";
   text-decoration: none;
   text-align: center;
+  text-transform: uppercase;
   color: #F16D7F;
   background-color: rgba(33, 22, 22, 0.7);
-  transition: background-color 0.4s;
+  transition: background-color 0.4s, box-shadow 0.4s;
   overflow: hidden;
 }
 
-.category-menu_items:nth-child(1) .category-menu_button:before {
-  content: "30% OFF";
+/*  дополнительный текст к кнопкам */
+
+.category-menu_item:nth-child(1) .category-menu_button:before {
+  content: "30% off";
   font: 400 16px/1.2 "Lato";
+  text-transform: uppercase;
   color: #FFF;
 }
 
-.category-menu_items:nth-child(2) .category-menu_button:before {
-  content: "HOT DEAL";
+.category-menu_item:nth-child(2) .category-menu_button:before {
+  content: "hot deal";
   font: 400 16px/1.2 "Lato";
+  text-transform: uppercase;
   color: #FFF;
 }
 
-.category-menu_items:nth-child(3) .category-menu_button:before {
-  content: "NEW ARRIVALS";
+.category-menu_item:nth-child(3) .category-menu_button:before {
+  content: "new arrivals";
   font: 400 16px/1.2 "Lato";
+  text-transform: uppercase;
   color: #FFF;
 }
 
-.category-menu_items:nth-child(4) .category-menu_button:before {
-  content: "LUXIROUS & TRENDY";
+.category-menu_item:nth-child(4) .category-menu_button:before {
+  content: "luxirous & trendy";
   font: 400 16px/1.2 "Lato";
+  text-transform: uppercase;
   color: #FFF;
 }
+
+/*  фоновые изображения для кнопок */
 
 .for-women_button {
   background: url(../images/button_for-women.jpg) no-repeat center / cover;
@@ -346,12 +372,15 @@ label[for="search-line"] {
 
 .category-menu_button:hover {
   background-color: rgba(33, 22, 22, 0.1);
+  box-shadow: 4px 4px 2px rgba(24, 24, 24, 0.4);
 }
 
 /* эффект при получении фокуса для кнопок меню категорий товаров */
 
 .category-menu_button:focus {
   background-color: rgba(33, 22, 22, 0.1);
+  box-shadow: 4px 4px 2px rgba(24, 24, 24, 0.4);
+  outline: none;
 }
 
 /* || FETURED-ITEMS */
@@ -362,6 +391,8 @@ label[for="search-line"] {
   justify-content: center;
 }
 
+/*  | Заголовок */
+
 .fetured-items_heading {
   margin: 6px 0;
   padding: 0 18px;
@@ -369,12 +400,16 @@ label[for="search-line"] {
   text-align: center;
 }
 
+/*  | Описание */
+
 .fetured-items_text {
   margin: 0;
   padding: 0 18px;
   font: 400 14px/1.2 "Lato";
   text-align: center;
 }
+
+/*  | Кнопки популярных товаров */
 
 .fetured-items_container {
   margin: 48px 0;
@@ -387,11 +422,24 @@ label[for="search-line"] {
 .item {
   display: flex;
   flex-direction: column;
+  position: relative;
   box-sizing: border-box;
   margin: 0;
   width: 360px;
   min-height: 581px;
   background: #F8F8F8;
+  transition: box-shadow 0.4s;
+}
+
+/* блок для добавления фона на изображение при наведении на кнопку */
+
+.item::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 420px;
+  position: absolute;
+  transition: background-color 0.4s;
 }
 
 .item-info {
@@ -407,9 +455,10 @@ label[for="search-line"] {
   flex: 0 1 auto;
   margin: 0 0 13px 0;
   font: 400 13px/1.2 "Lato";
+  text-transform: uppercase;
 }
 
-.item-info_discription {
+.item-info_description {
   flex: 1 1 auto;
   margin: 0 0 18px 0;
   color: #5D5D5D;
@@ -421,6 +470,100 @@ label[for="search-line"] {
   font: 400 16px/1.2 "Lato";
   color: #F16D7F;
 }
+
+.item-button {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  font: 0px/0 "Lato";
+}
+
+.item-button_cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  align-self: center;
+  justify-content: flex-start;
+  position: absolute;
+  z-index: 2;
+  /* центрирование кнопки в зависимости от количества строк*/
+  top: calc(196px - 0.5em * 1);
+  padding: 14px;
+  border: 1px solid #FFF;
+  font: 400 14px/1.2 "Lato";
+  text-decoration: none;
+  color: #FFF;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.icon-add-to-cart {
+  padding-right: 11px;
+}
+
+/* эффект наведения для кнопок (тень) */
+
+.item:hover {
+  box-shadow: 4px 4px 2px rgba(24, 24, 24, 0.4);
+}
+
+/* эффект при получении кнопкой фокуса (тень) */
+
+.item:focus-within {
+  box-shadow: 4px 4px 2px rgba(24, 24, 24, 0.4);
+}
+
+/* отображение дополнительной кнопки добавление в корзину при наведении */
+
+.item:hover .item-button_cart {
+  opacity: 1;
+}
+
+/* отображение дополнительной кнопки добавления в корзину при фокусе */
+
+.item:focus-within .item-button_cart {
+  opacity: 1;
+}
+
+/* отключение обводки у кнопок при фокусе */
+
+.item-button:focus {
+  outline: none;
+}
+
+/* эффект объемной кнопки для дополнительной кнопки добавления в корзину */
+
+.item-button_cart:hover {
+  border: 2.5px outset #FFF;
+}
+
+.item-button_cart:focus {
+  border: 2.5px outset #FFF;
+  outline: none;
+}
+
+.item-button_cart:active {
+  border: 2.5px inset #FFF;
+}
+
+/* добавления фона на изображение при наведении на кнопку */
+
+.item:hover::after {
+  background: rgba(58, 56, 56, 0.86);
+}
+
+/* добавления фона на изображение при получении кнопкой фокуса */
+
+.item:focus-within::after {
+  background: rgba(58, 56, 56, 0.86);
+}
+
+/*  | Кнопка для перехода к каталогу товаров */
 
 .fetured-items_button {
   align-self: center;
@@ -436,16 +579,249 @@ label[for="search-line"] {
   transition: background-color 0.4s, border 0.4s, color 0.4s;
 }
 
+/* эффект наведения на кнопку */
+
 .fetured-items_button:hover {
   background-color: #F16D7F;
   border: 1px solid #F16D7F;
   color: #FFF;
 }
 
+/* эффект при получении фокуса кнопкой */
+
+.fetured-items_button:focus {
+  background-color: #F16D7F;
+  border: 1px solid #F16D7F;
+  color: #FFF;
+  outline: none;
+}
+
 /* || FOOTER-TOP */
+
+/*  | Меню услуг */
 
 .service-menu {
   display: flex;
+  justify-content: space-between;
   list-style: none;
   padding-left: 0;
+  margin: 0;
+}
+
+.service-menu_items {
+  width: 100%;
+  height: 100%;
+}
+
+/*  | Кнопки меню услуг */
+
+.service-menu_button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 104px 0;
+  font: 300 14px/1.2 "Lato";
+  text-align: center;
+  text-decoration: none;
+  color: #FBFBFB;
+  transition: color 0.4s;
+}
+
+.service-menu_button>h2 {
+  width: 360px;
+  margin: 19px 0 16px 0;
+}
+
+.service-menu_button>p {
+  width: 360px;
+  margin: 0;
+}
+
+/* эффект наведения на кнопку */
+
+.service-menu_button:hover {
+  color: #F16D7F;
+}
+
+/* эффект при получении фокуса кнопкой */
+
+.service-menu_button:focus {
+  color: #F16D7F;
+  outline: none;
+}
+
+/* || FOOTER-MIDDLE */
+
+.footer-middle {
+  position: relative;
+  background: url("../images/background_footer.jpg") no-repeat left / cover;
+}
+
+/*  | Форма для подписки */
+
+.subscribe {
+  min-height: 448px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.appeal {
+  max-width: 356px;
+  margin: 0;
+  text-align: center;
+  font: 0/0 "Lato";
+}
+
+.quote {
+  margin-top: 30px;
+  font: 400 20px/1.2 "Lato";
+  text-align: center;
+}
+
+.subscribe-form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 356px;
+}
+
+.subscribe-form_heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 0 32px 0;
+  font: 400 18px/1.672 "Lato";
+  text-transform: uppercase;
+}
+
+.subscribe-form_heading .text_bold {
+  font: 700 24px/1.672 "Lato";
+}
+
+.subscribe-form_input {
+  flex: 1 0 auto;
+  padding: 16px 22px;
+  outline: none;
+  border: none;
+  border-radius: 25px 0 0 25px;
+  font: 14px/1.2 "Lato";
+  background: #E1E1E1;
+}
+
+.subscribe-form_button {
+  padding: 16px 22px;
+  outline: none;
+  border: none;
+  border-radius: 0 25px 25px 0;
+  font: 14px/1.2 "Lato";
+  background: #F16D7F;
+  color: #FFF;
+  transition: filter 0.4s;
+}
+
+/* эффект наведения на кнопку */
+
+.subscribe-form_button:hover {
+  cursor: pointer;
+  filter: brightness(125%);
+}
+
+/* эффект при получении фокуса кнопкой */
+
+.subscribe-form_button:focus {
+  cursor: pointer;
+  filter: brightness(125%);
+  outline: none;
+}
+
+/* FOOTER-BOTTOM */
+
+.footer-bottom>.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.copy {
+  font: 400 16px/1.2 "Lato";
+  color: #FBFBFB;
+}
+
+.social-menu {
+  display: flex;
+  justify-content: space-between;
+  width: 148px;
+  margin: 24px 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.social-menu_item {
+  width: 32px;
+  height: 32px;
+}
+
+.social-menu_item_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  background-color: #FFF;
+  transition: background-color 0.4s;
+}
+
+/* эффект наведения на кнопку */
+
+.social-menu_item_button:hover {
+  background-color: #F16D7F;
+}
+
+.social-menu_item_button:hover .fab {
+  color: #FFF;
+}
+
+/* эффект при получении фокуса кнопкой */
+
+.social-menu_item_button:focus {
+  background-color: #F16D7F;
+  outline: none;
+}
+
+.social-menu_item_button:focus .fab {
+  color: #FFF;
+}
+
+.fab {
+  color: #000;
+  transition: color 0.4s;
+}
+
+/* Для перестроения блоков подвала вертикально когда все кнопки меню услуг не помещаются в одну строку */
+
+@media (max-width: 1111px) {
+  .service-menu {
+    flex-direction: column;
+  }
+  .service-menu_button {
+    padding: 48px 0;
+  }
+  .service-menu_items:last-child>.service-menu_button {
+    padding: 48px 0 64px 0;
+  }
+  .subscribe {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .appeal {
+    margin: 64px 0;
+  }
+  .subscribe-form {
+    margin-bottom: 140px;
+  }
+  .subscribe-form_heading {
+    margin-bottom: 27px;
+  }
 }
