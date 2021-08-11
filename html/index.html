@@ -19,21 +19,30 @@
 </head>
 
 <body>
+  <!-- Скрытый чекбокс для всплывающего меню -->
+  <input class="pop-up-menu_check"
+         id="pop-up-menu"
+         type="checkbox"
+         tabindex="4">
   <div class="wrapper">
     <header>
       <div class="header-top">
         <div class="container">
-          <a class="logo"
-             href="index.html">
-            <img src="images/logo.svg"
-                 alt="logo">
-          </a>
+          <div class="container-logo">
+            <a class="logo"
+               href="index.html"
+               tabindex="1">
+              <img src="images/logo.svg"
+                   alt="logo">
+            </a>
+          </div>
           <form class="search-box"
                 action="#"
                 aria-label="search box">
             <button class="search-box_button"
                     name="search"
-                    type="submit">
+                    type="submit"
+                    tabindex="2">
               <svg fill="none"
                    height="38"
                    viewbox="0 -10 27 38"
@@ -50,13 +59,15 @@
                    name="search-line"
                    type="search"
                    placeholder="Site search..."
+                   tabindex="3"
                    aria-label="search field inputs">
           </form>
           <nav aria-label="main menu">
             <ul class="main-menu">
               <li class="main-menu_items">
-                <button class="main-menu_items_button pop-up-menu-button"
-                        name="pop-up-menu">
+                <!-- Кнопка всплывающего меню -->
+                <label class="main-menu_items_button pop-up-menu-button"
+                       for="pop-up-menu">
                   <svg fill="none"
                        height="38"
                        viewbox="0 -13 32 38"
@@ -67,7 +78,7 @@
                           fill="#E8E8E8"></path>
                   </svg>
                   Pop-up menu button, after clicking the menu will be located at the right edge of the page
-                </button>
+                </label>
               </li>
               <li class="main-menu_items">
                 <a class="main-menu_items_button account-button"
@@ -117,6 +128,118 @@
               </span>
             </span>
           </h1>
+        </div>
+        <!-- Всплывающее меню -->
+        <div class="pop-up-menu_wrapper">
+          <label class="pup-up-menu_close"
+                 for="pop-up-menu">
+            <svg class="cross"
+                 width="13"
+                 height="13"
+                 viewBox="0 0 13 13"
+                 fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+              <line class="cross-line"
+                    x1="1"
+                    x2="12"
+                    y1="1"
+                    y2="12"
+                    stroke="#6F6E6E"
+                    stroke-linecap="round"
+                    stroke-width="2" />
+              <line class="cross-line"
+                    x1="12"
+                    x2="1"
+                    y1="1"
+                    y2="12"
+                    stroke="#6F6E6E"
+                    stroke-linecap="round"
+                    stroke-width="2" />
+            </svg>
+          </label>
+          <h2 class="pup-up-menu_heading">Menu</h2>
+          <nav>
+            <ul class="pop-up-menu">
+              <li class="pop-up-menu_section">
+                <a class="pop-up-menu_section_button"
+                   href="#">Man</a>
+                <ul class="pop-up-menu_submenu">
+                  <li>
+                    <a class="pop-up-menu_submenu_button"
+                       href="#">Accessories</a>
+                  </li>
+                  <li>
+                    <a class="pop-up-menu_submenu_button"
+                       href="#">Bags</a>
+                  </li>
+                  <li>
+                    <a class="pop-up-menu_submenu_button"
+                       href="#">Denim</a>
+                  </li>
+                  <li>
+                    <a class="pop-up-menu_submenu_button"
+                       href="#">T-Shirts</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="pop-up-menu_section">
+                <a class="pop-up-menu_section_button"
+                   href="#">Woman</a>
+                <ul class="pop-up-menu_submenu">
+                  <li>
+                    <a class="pop-up-menu_submenu_button"
+                       href="#">Accessories</a>
+                  </li>
+                  <li>
+                    <a class="pop-up-menu_submenu_button"
+                       href="#">Jackets &amp; Coats</a>
+                  </li>
+                  <li>
+                    <a class="pop-up-menu_submenu_button"
+                       href="#">Polos</a>
+                  </li>
+                  <li>
+                    <a class="pop-up-menu_submenu_button"
+                       href="#">T-Shirts</a>
+                  </li>
+                  <li>
+                    <a class="pop-up-menu_submenu_button"
+                       href="#">Shirts</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="pop-up-menu_section">
+                <a class="pop-up-menu_section_button"
+                   href="#">Kids</a>
+                <ul class="pop-up-menu_submenu">
+                  <li>
+                    <a class="pop-up-menu_submenu_button"
+                       href="#">Accessories</a>
+                  </li>
+                  <li>
+                    <a class="pop-up-menu_submenu_button"
+                       href="#">Jackets &amp; Coats</a>
+                  </li>
+                  <li>
+                    <a class="pop-up-menu_submenu_button"
+                       href="#">Polos</a>
+                  </li>
+                  <li>
+                    <a class="pop-up-menu_submenu_button"
+                       href="#">T-Shirts</a>
+                  </li>
+                  <li>
+                    <a class="pop-up-menu_submenu_button"
+                       href="#">Shirts</a>
+                  </li>
+                  <li>
+                    <a class="pop-up-menu_submenu_button"
+                       href="#">Bags</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
         </div>
       </div>
     </header>

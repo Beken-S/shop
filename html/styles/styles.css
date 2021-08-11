@@ -32,6 +32,7 @@ footer {
 
 .header-top>.container {
   display: flex;
+  min-height: 74px;
 }
 
 /* цвет кнопок SVG */
@@ -43,9 +44,16 @@ footer {
 
 /*  | Логотип */
 
+.container-logo {
+  display: flex;
+  flex-direction: column;
+}
+
 .logo {
-  display: block;
-  padding: 19px 36px 19px 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 36px 0 0;
   font: 0px/0 "Lato";
 }
 
@@ -65,8 +73,10 @@ footer {
 
 .search-box_button {
   display: flex;
-  align-items: flex-end;
-  padding: 19px 20px 19px 5px;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 0 20px 0 5px;
   background: none;
   border: none;
   font: 0px/0 "Lato";
@@ -126,6 +136,7 @@ footer {
 .main-menu {
   display: flex;
   list-style: none;
+  height: 100%;
   margin: 0;
   padding: 0;
   font: 0px/0 "Lato";
@@ -136,14 +147,129 @@ footer {
 .main-menu_items {
   display: flex;
   align-items: flex-end;
+  position: relative;
 }
 
 .main-menu_items_button {
   display: flex;
-  align-items: flex-end;
-  padding: 19px 16.5px 19px 16.5px;
+  align-items: center;
+  height: 100%;
+  padding: 0 16.5px;
   background: none;
   border: none;
+}
+
+/*  | Всплывающее меню */
+
+.pop-up-menu_check {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.pop-up-menu_wrapper {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  width: 0;
+  min-width: 0;
+  min-height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: #FFF;
+  box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
+  transition: min-width 1s;
+}
+
+.pup-up-menu_close {
+  align-self: flex-end;
+  padding: 16px 16px 9px 16px;
+  transition: padding 1s;
+}
+
+.pup-up-menu_heading {
+  margin: 0 0 18px 0;
+  padding: 0 33px;
+  font: 700 14px/1.2 "Lato";
+  text-transform: uppercase;
+}
+
+.pop-up-menu {
+  margin: 0;
+  padding: 0 33px;
+  list-style: none;
+  font: 14px/1.2 "Lato";
+}
+
+/* .pop-up-menu_section {
+  padding: 20px 0 0 0;
+} */
+
+.pop-up-menu_section_button {
+  display: block;
+  box-sizing: border-box;
+  min-width: 166px;
+  padding: 6px 0;
+  border: 2px solid #FFF;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #F16D7F;
+  transition: border;
+}
+
+.pop-up-menu_submenu {
+  margin: 0;
+  padding: 0 22px;
+  list-style: none;
+}
+
+.pop-up-menu_submenu_button {
+  display: block;
+  box-sizing: border-box;
+  min-width: 144px;
+  padding: 6px 0;
+  border: 2px solid #FFF;
+  text-decoration: none;
+  color: #6F6E6E;
+  transition: border;
+}
+
+.pop-up-menu_section {
+  list-style: none;
+}
+
+.pup-up-menu_close:hover {
+  cursor: pointer;
+}
+
+.pup-up-menu_close:hover .cross-line {
+  stroke: #F16D7F;
+}
+
+.pop-up-menu_check:checked~* .pop-up-menu_wrapper {
+  min-width: 232px;
+}
+
+.pop-up-menu_check:checked~* .pop-up-menu-button .icon-color {
+  fill: #F16D7F;
+}
+
+.pop-up-menu_check:focus~* .pop-up-menu-button .icon-color {
+  fill: #F16D7F;
+}
+
+.pop-up-menu_submenu_button:hover {
+  border-top: 2px solid #F16D7F;
+  border-bottom: 2px solid #F16D7F;
+}
+
+.pop-up-menu_section_button:hover {
+  border-top: 2px solid #F16D7F;
+  border-bottom: 2px solid #F16D7F;
 }
 
 /* задание отступа для первой кнопки */
@@ -171,7 +297,8 @@ footer {
   display: block;
   position: absolute;
   padding: 2px 6px;
-  top: 20px;
+  /* 19px это половина высоты иконки */
+  top: calc(100% / 2 - 19px);
   right: 0;
   background: #F16D7F;
   border-radius: 10px;
@@ -205,6 +332,7 @@ footer {
 
 .header-bottom {
   display: flex;
+  position: relative;
   min-height: 764px;
   background: #F1E4E6;
 }
@@ -324,28 +452,28 @@ footer {
 
 .category-menu_item:nth-child(1) .category-menu_button:before {
   content: "30% off";
-  font: 400 16px/1.2 "Lato";
+  font: 16px/1.2 "Lato";
   text-transform: uppercase;
   color: #FFF;
 }
 
 .category-menu_item:nth-child(2) .category-menu_button:before {
   content: "hot deal";
-  font: 400 16px/1.2 "Lato";
+  font: 16px/1.2 "Lato";
   text-transform: uppercase;
   color: #FFF;
 }
 
 .category-menu_item:nth-child(3) .category-menu_button:before {
   content: "new arrivals";
-  font: 400 16px/1.2 "Lato";
+  font: 16px/1.2 "Lato";
   text-transform: uppercase;
   color: #FFF;
 }
 
 .category-menu_item:nth-child(4) .category-menu_button:before {
   content: "luxirous & trendy";
-  font: 400 16px/1.2 "Lato";
+  font: 16px/1.2 "Lato";
   text-transform: uppercase;
   color: #FFF;
 }
@@ -372,14 +500,14 @@ footer {
 
 .category-menu_button:hover {
   background-color: rgba(33, 22, 22, 0.1);
-  box-shadow: 4px 4px 2px rgba(24, 24, 24, 0.4);
+  box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.31);
 }
 
 /* эффект при получении фокуса для кнопок меню категорий товаров */
 
 .category-menu_button:focus {
   background-color: rgba(33, 22, 22, 0.1);
-  box-shadow: 4px 4px 2px rgba(24, 24, 24, 0.4);
+  box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.31);
   outline: none;
 }
 
@@ -396,7 +524,7 @@ footer {
 .fetured-items_heading {
   margin: 6px 0;
   padding: 0 18px;
-  font: 400 30px/1.2 "Lato";
+  font: 30px/1.2 "Lato";
   text-align: center;
 }
 
@@ -405,7 +533,7 @@ footer {
 .fetured-items_text {
   margin: 0;
   padding: 0 18px;
-  font: 400 14px/1.2 "Lato";
+  font: 14px/1.2 "Lato";
   text-align: center;
 }
 
@@ -454,7 +582,7 @@ footer {
 .item-info_name {
   flex: 0 1 auto;
   margin: 0 0 13px 0;
-  font: 400 13px/1.2 "Lato";
+  font: 13px/1.2 "Lato";
   text-transform: uppercase;
 }
 
@@ -467,7 +595,7 @@ footer {
 .item-info_price {
   margin: 0;
   justify-self: flex-end;
-  font: 400 16px/1.2 "Lato";
+  font: 16px/1.2 "Lato";
   color: #F16D7F;
 }
 
@@ -495,7 +623,7 @@ footer {
   top: calc(196px - 0.5em * 1);
   padding: 14px;
   border: 1px solid #FFF;
-  font: 400 14px/1.2 "Lato";
+  font: 14px/1.2 "Lato";
   text-decoration: none;
   color: #FFF;
   opacity: 0;
@@ -509,13 +637,13 @@ footer {
 /* эффект наведения для кнопок (тень) */
 
 .item:hover {
-  box-shadow: 4px 4px 2px rgba(24, 24, 24, 0.4);
+  box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21)
 }
 
 /* эффект при получении кнопкой фокуса (тень) */
 
 .item:focus-within {
-  box-shadow: 4px 4px 2px rgba(24, 24, 24, 0.4);
+  box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21)
 }
 
 /* отображение дополнительной кнопки добавление в корзину при наведении */
@@ -573,7 +701,7 @@ footer {
   padding: 14px 38px;
   border: 1px solid #FF6A6A;
   text-decoration: none;
-  font: 400 16px/1.2 "Lato";
+  font: 16px/1.2 "Lato";
   color: #FF6A6A;
   background-color: #FFF;
   transition: background-color 0.4s, border 0.4s, color 0.4s;
@@ -675,7 +803,7 @@ footer {
 
 .quote {
   margin-top: 30px;
-  font: 400 20px/1.2 "Lato";
+  font: 20px/1.2 "Lato";
   text-align: center;
 }
 
@@ -691,7 +819,7 @@ footer {
   flex-direction: column;
   align-items: center;
   margin: 0 0 32px 0;
-  font: 400 18px/1.672 "Lato";
+  font: 18px/1.672 "Lato";
   text-transform: uppercase;
 }
 
@@ -744,7 +872,7 @@ footer {
 }
 
 .copy {
-  font: 400 16px/1.2 "Lato";
+  font: 16px/1.2 "Lato";
   color: #FBFBFB;
 }
 
@@ -800,6 +928,13 @@ footer {
 }
 
 /* Для перестроения блоков подвала вертикально когда все кнопки меню услуг не помещаются в одну строку */
+
+@media (min-width: 1601px) {
+  .pop-up-menu_wrapper {
+    left: calc(50% + 570px);
+    right: initial;
+  }
+}
 
 @media (max-width: 1111px) {
   .service-menu {
