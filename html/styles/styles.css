@@ -205,16 +205,12 @@ footer {
   font: 14px/1.2 "Lato";
 }
 
-/* .pop-up-menu_section {
-  padding: 20px 0 0 0;
-} */
-
 .pop-up-menu_section_button {
   display: block;
   box-sizing: border-box;
   min-width: 166px;
   padding: 6px 0;
-  border: 2px solid #FFF;
+  border: 1px solid #FFF;
   text-decoration: none;
   text-transform: uppercase;
   color: #F16D7F;
@@ -223,7 +219,7 @@ footer {
 
 .pop-up-menu_submenu {
   margin: 0;
-  padding: 0 22px;
+  padding: 0;
   list-style: none;
 }
 
@@ -231,8 +227,8 @@ footer {
   display: block;
   box-sizing: border-box;
   min-width: 144px;
-  padding: 6px 0;
-  border: 2px solid #FFF;
+  padding: 6px 0 6px 22px;
+  border: 1px solid #FFF;
   text-decoration: none;
   color: #6F6E6E;
   transition: border;
@@ -263,13 +259,25 @@ footer {
 }
 
 .pop-up-menu_submenu_button:hover {
-  border-top: 2px solid #F16D7F;
-  border-bottom: 2px solid #F16D7F;
+  border-top: 1px solid #F16D7F;
+  border-bottom: 1px solid #F16D7F;
 }
 
 .pop-up-menu_section_button:hover {
-  border-top: 2px solid #F16D7F;
-  border-bottom: 2px solid #F16D7F;
+  border-top: 1px solid #F16D7F;
+  border-bottom: 1px solid #F16D7F;
+}
+
+.pop-up-menu_submenu_button:focus {
+  border-top: 1px solid #F16D7F;
+  border-bottom: 1px solid #F16D7F;
+  outline: none;
+}
+
+.pop-up-menu_section_button:focus {
+  border-top: 1px solid #F16D7F;
+  border-bottom: 1px solid #F16D7F;
+  outline: none;
 }
 
 /* задание отступа для первой кнопки */
