@@ -163,9 +163,7 @@ footer {
 
 .pop-up-menu_check {
   position: absolute;
-  width: 0;
-  height: 0;
-  opacity: 0;
+  visibility: collapse;
 }
 
 .pop-up-menu_wrapper {
@@ -182,17 +180,19 @@ footer {
   overflow: hidden;
   background: #FFF;
   box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
-  transition: min-width 1s;
+  opacity: 0;
+  transition: opacity 0.4s;
 }
 
 .pup-up-menu_close {
-  align-self: flex-end;
-  padding: 16px 16px 9px 16px;
-  transition: padding 1s;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 16px;
 }
 
 .pup-up-menu_heading {
-  margin: 0 0 18px 0;
+  margin: 37px 0 18px 0;
   padding: 0 33px;
   font: 700 14px/1.2 "Lato";
   text-transform: uppercase;
@@ -200,7 +200,7 @@ footer {
 
 .pop-up-menu {
   margin: 0;
-  padding: 0 33px;
+  padding: 0 33px 33px 33px;
   list-style: none;
   font: 14px/1.2 "Lato";
 }
@@ -248,6 +248,7 @@ footer {
 
 .pop-up-menu_check:checked~* .pop-up-menu_wrapper {
   min-width: 232px;
+  opacity: 1;
 }
 
 .pop-up-menu_check:checked~* .pop-up-menu-button .icon-color {
@@ -339,15 +340,12 @@ footer {
 /* || HEADER-BOTTOM */
 
 .header-bottom {
-  display: flex;
   position: relative;
-  min-height: 764px;
   background: #F1E4E6;
 }
 
-.header-bottom>.container {
-  flex: 1 1 auto;
-  position: relative;
+.header-bottom-home {
+  min-height: 763px;
   background: url(../images/header-bottom_background.png) no-repeat;
   background-position: left -210px bottom;
 }
@@ -357,9 +355,10 @@ footer {
 .tagline {
   display: flex;
   width: 405px;
-  padding: 0 0 0 16px;
+  margin: 0;
+  padding: 0 0 33px 16px;
   font: 900 48px/1em "Lato";
-  position: absolute;
+  position: relative;
   left: calc(100% - 500px);
   top: 303px;
   text-transform: uppercase;
@@ -519,9 +518,9 @@ footer {
   outline: none;
 }
 
-/* || FETURED-ITEMS */
+/* || FEATURED-ITEMS */
 
-.fetured-items {
+.featured-items {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -529,7 +528,7 @@ footer {
 
 /*  | Заголовок */
 
-.fetured-items_heading {
+.featured-items_heading {
   margin: 6px 0;
   padding: 0 18px;
   font: 30px/1.2 "Lato";
@@ -538,7 +537,7 @@ footer {
 
 /*  | Описание */
 
-.fetured-items_text {
+.featured-items_text {
   margin: 0;
   padding: 0 18px;
   font: 14px/1.2 "Lato";
@@ -547,7 +546,7 @@ footer {
 
 /*  | Кнопки популярных товаров */
 
-.fetured-items_container {
+.featured-items_container {
   margin: 48px 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, 360px);
@@ -701,7 +700,7 @@ footer {
 
 /*  | Кнопка для перехода к каталогу товаров */
 
-.fetured-items_button {
+.featured-items_button {
   align-self: center;
   display: block;
   box-sizing: border-box;
@@ -717,7 +716,7 @@ footer {
 
 /* эффект наведения на кнопку */
 
-.fetured-items_button:hover {
+.featured-items_button:hover {
   background-color: #F16D7F;
   border: 1px solid #F16D7F;
   color: #FFF;
@@ -725,7 +724,7 @@ footer {
 
 /* эффект при получении фокуса кнопкой */
 
-.fetured-items_button:focus {
+.featured-items_button:focus {
   background-color: #F16D7F;
   border: 1px solid #F16D7F;
   color: #FFF;
@@ -933,6 +932,298 @@ footer {
 .fab {
   color: #000;
   transition: color 0.4s;
+}
+
+/* ========== Страница Product ========== */
+
+.header-bottom-product {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 148px;
+}
+
+.header-bottom_heading {
+  margin: 0;
+  font: 24px/1.2 "Lato";
+  text-transform: uppercase;
+  color: #F16D7F;
+}
+
+/*  | Хлебные крошки */
+
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.breadcrumbs {
+  padding: 0;
+  font: 300 14px/1.2 "Lato";
+  text-transform: uppercase;
+}
+
+.breadcrumbs_item:not(:last-of-type)::after {
+  content: "/";
+  margin: 0 1px;
+  color: #636363;
+}
+
+.breadcrumbs_item {
+  display: inline;
+}
+
+.breadcrumbs_item>a {
+  text-decoration: none;
+  color: #636363;
+}
+
+.breadcrumbs_item:last-of-type>a {
+  font: 700 14px/1.2 "Lato";
+  color: #F16D7F;
+}
+
+.breadcrumbs_item>a:hover {
+  text-decoration: underline;
+}
+
+/*  | Карусель */
+
+.product {
+  width: 100%;
+  height: 1313px;
+  position: relative;
+}
+
+.product::after {
+  content: "";
+  display: block;
+  width: 100%;
+}
+
+@media (max-width: 1600px) {
+  .product {
+    height: auto;
+  }
+  .product::after {
+    padding-bottom: 82.0625%;
+  }
+}
+
+@media (max-width: 1512.764661px) {
+  .product {
+    height: 1225px;
+  }
+  .product::after {
+    padding: 0;
+  }
+}
+
+.carousel {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 777px;
+  overflow: hidden;
+}
+
+.carousel::after {
+  content: "";
+  display: block;
+  width: 100%;
+}
+
+@media (max-width: 1600px) {
+  .carousel {
+    height: auto;
+  }
+  .carousel::after {
+    padding-bottom: calc(100% * 1.426768 - 1502.976009px);
+  }
+}
+
+@media (max-width: 1512.764661px) {
+  .carousel {
+    height: 624px;
+  }
+  .carousel::after {
+    padding-bottom: 0;
+  }
+}
+
+.carousel-inner {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  border: 1px solid #EAEAEA;
+  background: #F7F7F7;
+  z-index: 0;
+}
+
+.carousel_item {
+  width: 100%;
+  height: 100%;
+}
+
+.carousel_picture {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel_picture img {
+  padding-top: 11px;
+  padding-bottom: 42px;
+}
+
+@media (max-width: 1600px) {
+  .carousel_picture img {
+    padding-top: calc(294.134275px - 100% * 0.177170);
+    padding-bottom: calc(100% * 0.121229 - 151.723452px);
+  }
+}
+
+@media (max-width: 1512.764661px) {
+  .carousel_picture img {
+    padding-top: 30px;
+    padding-bottom: 39px;
+  }
+}
+
+.carousel-control {
+  position: absolute;
+  width: 47px;
+  height: 47px;
+  border: none;
+  background: rgba(42, 42, 42, 0.15);
+  font: 0/0 "Lato";
+}
+
+.carousel-control .icon-color {
+  fill: black;
+}
+
+.prev {
+  top: calc(50% - 23.5px);
+  left: 0;
+}
+
+.next {
+  top: calc(50% - 23.5px);
+  right: 0;
+}
+
+.carousel-control:hover .icon-color {
+  fill: #F16D7F;
+}
+
+.product-description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 601px;
+  max-width: 1141px;
+  background: #FFF;
+  border: 1px solid #EAEAEA;
+  font: 300 14px/1.2 "Lato";
+  color: #5E5E5E;
+}
+
+.product-description_wrapper {
+  max-width: 555px;
+  text-align: center;
+}
+
+.product_collection {
+  margin: 65px 0 12px 0;
+  text-transform: uppercase;
+  font: 300 14px/1.2 "Lato";
+  color: #F16D7F;
+}
+
+.divider_collection {
+  margin: 0 auto;
+  width: 63px;
+  height: 3px;
+  border: none;
+  background: #EF5B70;
+}
+
+.product_name {
+  margin: 12px 0 48px 0;
+  text-transform: uppercase;
+  font: 300 18px/1.2 "Lato";
+  color: #4D4D4D;
+}
+
+.price {
+  margin: 32px 0 65px 0;
+  font: 300 24px/1.2 "Lato";
+  color: #EF5B70;
+}
+
+.divider_parameters {
+  margin: 0 auto;
+  height: 1px;
+  border: none;
+  background: #EAEAEA;
+}
+
+.product_parameters {
+  display: flex;
+  margin: 65px 0 48px 0;
+}
+
+.parameter {
+  margin: 0 23px;
+}
+
+.parameter summary {
+  text-transform: uppercase;
+}
+
+.parameter>summary {
+  list-style: none;
+}
+
+.parameter summary::after {
+  content: "\f078";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 700;
+  margin-left: 9px;
+}
+
+.parameter[open] summary::after {
+  content: "\f077";
+}
+
+.product-button_cart {
+  display: block;
+  box-sizing: border-box;
+  padding: 15px 57px 9px 24px;
+  border: 1px solid #FF6A6A;
+}
+
+.similar-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.similar-items_container {
+  margin: 48px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 360px);
+  justify-content: center;
+  grid-gap: 30px;
 }
 
 /* Для перестроения блоков подвала вертикально когда все кнопки меню услуг не помещаются в одну строку */
