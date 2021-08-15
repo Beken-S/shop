@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
 body {
   font-family: "Lato", sans-serif;
@@ -26,22 +25,25 @@ footer {
 }
 
 /* || HEADER-TOP */
+
 .header-top {
   background: #222224;
 }
 
-.header-top > .container {
+.header-top>.container {
   display: flex;
   min-height: 74px;
 }
 
 /* цвет кнопок SVG */
+
 .icon-color {
   fill: #E8E8E8;
   transition: fill 0.4s;
 }
 
 /*  | Логотип */
+
 .container-logo {
   display: flex;
   flex-direction: column;
@@ -60,6 +62,7 @@ footer {
 }
 
 /*  | Форма для поиска */
+
 .search-box {
   display: flex;
   flex: 1 1 auto;
@@ -67,6 +70,7 @@ footer {
 }
 
 /*  | Кнопка поиска */
+
 .search-box_button {
   display: flex;
   flex-direction: column;
@@ -79,16 +83,19 @@ footer {
 }
 
 /* эффект наведения на кнопку (курсор) */
+
 .search-box_button:hover {
   cursor: pointer;
 }
 
 /* эффект наведения на кнопку (цвет) */
+
 .search-box_button:hover .icon-color {
   fill: #F16D7F;
 }
 
 /* эффект получения фокуса кнопкой */
+
 .search-box_button:focus {
   outline: none;
 }
@@ -99,6 +106,7 @@ footer {
 }
 
 /*  | Строка поиска */
+
 .search-box_input {
   flex: 1 1 auto;
   padding: 10px 22px;
@@ -111,17 +119,20 @@ footer {
 }
 
 /* эффект наведения для строки поиска */
+
 .search-box:hover .search-box_input {
   opacity: 1;
 }
 
 /* эффект получения фокуса для строки поиска */
+
 .search-box_input:focus {
   outline: none;
   opacity: 1;
 }
 
 /*  | Главное меню */
+
 .main-menu {
   display: flex;
   list-style: none;
@@ -132,6 +143,7 @@ footer {
 }
 
 /*  | Кнопки главного меню */
+
 .main-menu_items {
   display: flex;
   align-items: flex-end;
@@ -148,6 +160,7 @@ footer {
 }
 
 /*  | Всплывающее меню */
+
 .pop-up-menu_check {
   position: absolute;
   visibility: collapse;
@@ -233,16 +246,16 @@ footer {
   stroke: #F16D7F;
 }
 
-.pop-up-menu_check:checked ~ * .pop-up-menu_wrapper {
+.pop-up-menu_check:checked~* .pop-up-menu_wrapper {
   min-width: 232px;
   opacity: 1;
 }
 
-.pop-up-menu_check:checked ~ * .pop-up-menu-button .icon-color {
+.pop-up-menu_check:checked~* .pop-up-menu-button .icon-color {
   fill: #F16D7F;
 }
 
-.pop-up-menu_check:focus ~ * .pop-up-menu-button .icon-color {
+.pop-up-menu_check:focus~* .pop-up-menu-button .icon-color {
   fill: #F16D7F;
 }
 
@@ -269,21 +282,25 @@ footer {
 }
 
 /* задание отступа для первой кнопки */
+
 .main-menu_items:first-of-type .main-menu_items_button {
   padding-left: 20px;
 }
 
 /* задание отступа для последней кнопки */
+
 .main-menu_items:last-of-type .main-menu_items_button {
   padding-right: 6px;
 }
 
 /* для позиционирования блока с количеством товаров в корзине */
+
 .cart-button {
   position: relative;
 }
 
 /* блок с количеством товаров в корзине */
+
 .cart-button::after {
   content: "5";
   display: block;
@@ -299,16 +316,19 @@ footer {
 }
 
 /* эффект наведения на кнопку (курсор) */
+
 .pop-up-menu-button:hover {
   cursor: pointer;
 }
 
 /* эффект наведения на кнопки (цвет) */
+
 .main-menu_items_button:hover .icon-color {
   fill: #F16D7F;
 }
 
 /* эффект получения фокуса кнопкой */
+
 .main-menu_items_button:focus {
   outline: none;
 }
@@ -318,6 +338,7 @@ footer {
 }
 
 /* || HEADER-BOTTOM */
+
 .header-bottom {
   position: relative;
   background: #F1E4E6;
@@ -330,6 +351,7 @@ footer {
 }
 
 /*  | Слоган */
+
 .tagline {
   display: flex;
   width: 405px;
@@ -363,12 +385,14 @@ footer {
 }
 
 /* || CONTENT */
-.content > .container {
+
+.content>.container {
   display: flex;
   flex-direction: column;
 }
 
 /*  | Меню категорий товаров */
+
 .category-menu {
   display: flex;
   justify-content: space-between;
@@ -397,6 +421,7 @@ footer {
 
 /* вычисление высоты кнопок в зависимости от соотношения сторон
    картинок для фона */
+
 .calc-button-height {
   position: relative;
   padding-top: calc(100% * 260 / 360);
@@ -404,6 +429,7 @@ footer {
 
 /* вычисление высоты последней кнопки в зависимости от соотношения сторон
    картинки для фона */
+
 .category-menu_item:last-of-type .calc-button-height {
   padding-top: calc(100% * 180 / 1140);
 }
@@ -430,6 +456,7 @@ footer {
 }
 
 /*  дополнительный текст к кнопкам */
+
 .category-menu_item:nth-child(1) .category-menu_button:before {
   content: "30% off";
   font: 16px/1.2 "Lato";
@@ -459,29 +486,32 @@ footer {
 }
 
 /*  фоновые изображения для кнопок */
+
 .for-women_button {
-  background: url(../images/button_for-women.jpg) no-repeat center/cover;
+  background: url(../images/button_for-women.jpg) no-repeat center / cover;
 }
 
 .for-men_button {
-  background: url(../images/button_for-men.jpg) no-repeat center/cover;
+  background: url(../images/button_for-men.jpg) no-repeat center / cover;
 }
 
 .for-kids_button {
-  background: url(../images/button_for-kids.jpg) no-repeat center/cover;
+  background: url(../images/button_for-kids.jpg) no-repeat center / cover;
 }
 
 .accesories_button {
-  background: url(../images/button_accesories.jpg) no-repeat center/cover;
+  background: url(../images/button_accesories.jpg) no-repeat center / cover;
 }
 
 /* эффект наведения для кнопок меню категорий товаров */
+
 .category-menu_button:hover {
   background-color: rgba(33, 22, 22, 0.1);
   box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.31);
 }
 
 /* эффект при получении фокуса для кнопок меню категорий товаров */
+
 .category-menu_button:focus {
   background-color: rgba(33, 22, 22, 0.1);
   box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.31);
@@ -489,6 +519,7 @@ footer {
 }
 
 /* || FEATURED-ITEMS */
+
 .featured-items {
   display: flex;
   flex-direction: column;
@@ -496,6 +527,7 @@ footer {
 }
 
 /*  | Заголовок */
+
 .featured-items_heading {
   margin: 6px 0;
   padding: 0 18px;
@@ -504,6 +536,7 @@ footer {
 }
 
 /*  | Описание */
+
 .featured-items_text {
   margin: 0;
   padding: 0 18px;
@@ -512,6 +545,7 @@ footer {
 }
 
 /*  | Кнопки популярных товаров */
+
 .featured-items_container {
   margin: 48px 0;
   display: grid;
@@ -533,6 +567,7 @@ footer {
 }
 
 /* блок для добавления фона на изображение при наведении на кнопку */
+
 .item::after {
   content: "";
   display: block;
@@ -607,31 +642,37 @@ footer {
 }
 
 /* эффект наведения для кнопок (тень) */
+
 .item:hover {
-  box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
+  box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21)
 }
 
 /* эффект при получении кнопкой фокуса (тень) */
+
 .item:focus-within {
-  box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
+  box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21)
 }
 
 /* отображение дополнительной кнопки добавление в корзину при наведении */
+
 .item:hover .item-button_cart {
   opacity: 1;
 }
 
 /* отображение дополнительной кнопки добавления в корзину при фокусе */
+
 .item:focus-within .item-button_cart {
   opacity: 1;
 }
 
 /* отключение обводки у кнопок при фокусе */
+
 .item-button:focus {
   outline: none;
 }
 
 /* эффект объемной кнопки для дополнительной кнопки добавления в корзину */
+
 .item-button_cart:hover {
   border: 2.5px outset #FFF;
 }
@@ -646,16 +687,19 @@ footer {
 }
 
 /* добавления фона на изображение при наведении на кнопку */
+
 .item:hover::after {
   background: rgba(58, 56, 56, 0.86);
 }
 
 /* добавления фона на изображение при получении кнопкой фокуса */
+
 .item:focus-within::after {
   background: rgba(58, 56, 56, 0.86);
 }
 
 /*  | Кнопка для перехода к каталогу товаров */
+
 .featured-items_button {
   align-self: center;
   display: block;
@@ -671,6 +715,7 @@ footer {
 }
 
 /* эффект наведения на кнопку */
+
 .featured-items_button:hover {
   background-color: #F16D7F;
   border: 1px solid #F16D7F;
@@ -678,6 +723,7 @@ footer {
 }
 
 /* эффект при получении фокуса кнопкой */
+
 .featured-items_button:focus {
   background-color: #F16D7F;
   border: 1px solid #F16D7F;
@@ -686,7 +732,9 @@ footer {
 }
 
 /* || FOOTER-TOP */
+
 /*  | Меню услуг */
+
 .service-menu {
   display: flex;
   justify-content: space-between;
@@ -701,6 +749,7 @@ footer {
 }
 
 /*  | Кнопки меню услуг */
+
 .service-menu_button {
   display: flex;
   flex-direction: column;
@@ -713,34 +762,38 @@ footer {
   transition: color 0.4s;
 }
 
-.service-menu_button > h2 {
+.service-menu_button>h2 {
   width: 360px;
   margin: 19px 0 16px 0;
 }
 
-.service-menu_button > p {
+.service-menu_button>p {
   width: 360px;
   margin: 0;
 }
 
 /* эффект наведения на кнопку */
+
 .service-menu_button:hover {
   color: #F16D7F;
 }
 
 /* эффект при получении фокуса кнопкой */
+
 .service-menu_button:focus {
   color: #F16D7F;
   outline: none;
 }
 
 /* || FOOTER-MIDDLE */
+
 .footer-middle {
   position: relative;
-  background: url("../images/background_footer.jpg") no-repeat left/cover;
+  background: url("../images/background_footer.jpg") no-repeat left / cover;
 }
 
 /*  | Форма для подписки */
+
 .subscribe {
   min-height: 448px;
   display: flex;
@@ -803,12 +856,14 @@ footer {
 }
 
 /* эффект наведения на кнопку */
+
 .subscribe-form_button:hover {
   cursor: pointer;
   filter: brightness(125%);
 }
 
 /* эффект при получении фокуса кнопкой */
+
 .subscribe-form_button:focus {
   cursor: pointer;
   filter: brightness(125%);
@@ -816,7 +871,8 @@ footer {
 }
 
 /* FOOTER-BOTTOM */
-.footer-bottom > .container {
+
+.footer-bottom>.container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -853,6 +909,7 @@ footer {
 }
 
 /* эффект наведения на кнопку */
+
 .social-menu_item_button:hover {
   background-color: #F16D7F;
 }
@@ -862,6 +919,7 @@ footer {
 }
 
 /* эффект при получении фокуса кнопкой */
+
 .social-menu_item_button:focus {
   background-color: #F16D7F;
   outline: none;
@@ -877,6 +935,7 @@ footer {
 }
 
 /* ========== Страница Product ========== */
+
 .header-bottom-product {
   display: flex;
   justify-content: space-between;
@@ -892,6 +951,7 @@ footer {
 }
 
 /*  | Хлебные крошки */
+
 .product {
   display: flex;
   flex-direction: column;
@@ -914,21 +974,22 @@ footer {
   display: inline;
 }
 
-.breadcrumbs_item > a {
+.breadcrumbs_item>a {
   text-decoration: none;
   color: #636363;
 }
 
-.breadcrumbs_item:last-of-type > a {
+.breadcrumbs_item:last-of-type>a {
   font: 700 14px/1.2 "Lato";
   color: #F16D7F;
 }
 
-.breadcrumbs_item > a:hover {
+.breadcrumbs_item>a:hover {
   text-decoration: underline;
 }
 
 /*  | Карусель */
+
 .product {
   width: 100%;
   height: 1313px;
@@ -945,20 +1006,20 @@ footer {
   .product {
     height: auto;
   }
-
   .product::after {
     padding-bottom: 82.0625%;
   }
 }
+
 @media (max-width: 1512.764661px) {
   .product {
     height: 1225px;
   }
-
   .product::after {
     padding: 0;
   }
 }
+
 .carousel {
   position: absolute;
   top: 0;
@@ -977,20 +1038,20 @@ footer {
   .carousel {
     height: auto;
   }
-
   .carousel::after {
     padding-bottom: calc(100% * 1.426768 - 1502.976009px);
   }
 }
+
 @media (max-width: 1512.764661px) {
   .carousel {
     height: 624px;
   }
-
   .carousel::after {
     padding-bottom: 0;
   }
 }
+
 .carousel-inner {
   position: absolute;
   top: 0;
@@ -1025,12 +1086,14 @@ footer {
     padding-bottom: calc(100% * 0.121229 - 151.723452px);
   }
 }
+
 @media (max-width: 1512.764661px) {
   .carousel_picture img {
     padding-top: 30px;
     padding-bottom: 39px;
   }
 }
+
 .carousel-control {
   position: absolute;
   width: 47px;
@@ -1127,19 +1190,19 @@ footer {
   text-transform: uppercase;
 }
 
-.parameter > summary {
+.parameter>summary {
   list-style: none;
 }
 
 .parameter summary::after {
-  content: "";
+  content: "\f078";
   font-family: "Font Awesome 5 Free";
   font-weight: 700;
   margin-left: 9px;
 }
 
 .parameter[open] summary::after {
-  content: "";
+  content: "\f077";
 }
 
 .product-button_cart {
@@ -1164,41 +1227,35 @@ footer {
 }
 
 /* Для перестроения блоков подвала вертикально когда все кнопки меню услуг не помещаются в одну строку */
+
 @media (min-width: 1601px) {
   .pop-up-menu_wrapper {
     left: calc(50% + 570px);
     right: initial;
   }
 }
+
 @media (max-width: 1111px) {
   .service-menu {
     flex-direction: column;
   }
-
   .service-menu_button {
     padding: 48px 0;
   }
-
-  .service-menu_items:last-child > .service-menu_button {
+  .service-menu_items:last-child>.service-menu_button {
     padding: 48px 0 64px 0;
   }
-
   .subscribe {
     flex-direction: column;
     justify-content: center;
   }
-
   .appeal {
     margin: 64px 0;
   }
-
   .subscribe-form {
     margin-bottom: 140px;
   }
-
   .subscribe-form_heading {
     margin-bottom: 27px;
   }
 }
-
-/*# sourceMappingURL=styles.css.map */
