@@ -15,7 +15,7 @@
         href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
         integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
         rel="stylesheet">
-  <title>Shop</title>
+  <title>Product</title>
 </head>
 
 <body>
@@ -140,26 +140,36 @@
       </div>
       <div class="header__header-bottom">
         <div class="header__container
-                    header__container_min-height_l
-                    header__container_theme_homepage
-                    container">
-          <h1 class="header__tagline
-                     tagline">
-            <span class="tagline
-                         tagline__decoration"></span>
-            <span class="tagline">
-              The brand
-              <span class="tagline
-                           tagline_size_s">
-                of luxerious
-              </span>
-              <span class="tagline
-                           tagline_size_s
-                           tagline_color_pink">
-                fashion
-              </span>
-            </span>
+                    header__container_min-height_s
+                    container
+                    container_flex
+                    container_flex_justify_s-b
+                    container_flex_align_c">
+          <h1 class="header__title">
+            New arrivals
           </h1>
+          <nav class="breadcrumbs">
+            <ul class="breadcrumbs__list">
+              <li class="breadcrumbs__item">
+                <a class="breadcrumbs__link"
+                   href="#">
+                  home
+                </a>
+              </li>
+              <li class="breadcrumbs__item">
+                <a class="breadcrumbs__link"
+                   href="#">
+                  men
+                </a>
+              </li>
+              <li class="breadcrumbs__item">
+                <a class="breadcrumbs__link"
+                   href="#">
+                  new arrival
+                </a>
+              </li>
+            </ul>
+          </nav>
         </div>
         <!-- Всплывающее меню -->
         <section class="header__pop-up-menu
@@ -354,62 +364,110 @@
     <section class="wrapper__content
                     content"
              aria-label="main content">
+      <section class="product-preview">
+        <section class="product-preview__carousel
+                    carousel">
+          <div class="carousel__inner">
+            <div class="carousel__item">
+              <picture class="carousel__img-box">
+                <!-- <source srcset="images/item-photo-1_251px.jpg"
+                        media="(min-width: 767px)"> -->
+                <source srcset="images/item-photo-1_466px.jpg"
+                        media="(max-width: 1290px)">
+                <img class="carousel__img"
+                     src="images/item-photo-1_597px.jpg"
+                     alt="item photo">
+              </picture>
+            </div>
+          </div>
+          <button class="carousel__button
+                         carousel__button_prev
+                         button
+                         button_kind_icon"
+                  type="button">
+            <svg width="13"
+                 height="23"
+                 viewBox="0 0 13 23"
+                 fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+              <path class="button__icon
+                           carousel__icon"
+                    d="M12.6998 3.7499L4.9498 11.4999L12.6998 19.2499L11.1498 22.3499L0.299805 11.4999L11.1498 0.649902L12.6998 3.7499Z" />
+            </svg>
+            Previous
+          </button>
+          <button class="carousel__button
+                        carousel__button_next
+                        button
+                        button_kind_icon"
+                  type="button">
+            <svg width="13"
+                 height="23"
+                 viewBox="0 0 13 23"
+                 fill="none"
+                 xmlns="http://www.w3.org/2000/svg">
+              <path class="button__icon
+                           carousel__icon"
+                    d="M12.6998 3.7499L4.9498 11.4999L12.6998 19.2499L11.1498 22.3499L0.299805 11.4999L11.1498 0.649902L12.6998 3.7499Z"
+                    transform="rotate(180 6.5 11.5)" />
+            </svg>
+            Next
+          </button>
+        </section>
+
+        <section class="product-preview__selection
+                        selection">
+          <div class="selection__container">
+            <h2 class="selection__title">
+              Women collection
+            </h2>
+            <hr class="selection__divider
+                       selection__divider_style_collection">
+            <h3 class="selection__subtitle">
+              Moschino cheap and chic
+            </h3>
+            <p class="selection__text">
+              Compellingly actualize fully researched processes before proactive outsourcing. Progressively syndicate
+              collaborative architectures before cutting-edge services. Completely visualize parallel core competencies
+              rather than exceptional portals.
+            </p>
+            <p class="selection__text
+                      selection__text_style_price">
+              $561
+            </p>
+            <hr class="selection__divider
+                       selection__divider_style_parameter">
+            <div class="selection__product-parameters">
+              <details class="selection__details
+                              details">
+                <summary class="details__summary">Choose color</summary>
+              </details>
+              <details class="parameter">
+                <summary>Choose size</summary>
+              </details>
+              <details class="parameter">
+                <summary>Quantity</summary>
+              </details>
+            </div>
+            <a class="product-button_cart"
+               href="#">
+              <svg class="icon-add-to-cart"
+                   fill="none"
+                   width="26.01"
+                   height="24.2"
+                   viewbox="0 0 26.01 24.02"
+                   xmlns="http://www.w3.org/2000/svg">
+                <use href="#icon-cart"></use>
+              </svg>
+              Add to Cart
+            </a>
+          </div>
+
+        </section>
+      </section>
       <div class="content__container">
-        <nav class="content__category-menu
-                    category-menu"
-             aria-label="product category menu">
-          <ul class="category-menu__list">
-            <li class="category-menu__item
-                       category-menu__item_style_for-women">
-              <a class="category-menu__button
-                        category-menu__button_style_for-women
-                        button
-                        button_kind_link"
-                 href="#">
-                For women
-              </a>
-            </li>
-            <li class="category-menu__item
-                       category-menu__item_style_for-men">
-              <a class="category-menu__button
-                        category-menu__button_style_for-men
-                        button
-                        button_kind_link"
-                 href="#">
-                For men
-              </a>
-            </li>
-            <li class="category-menu__item
-                       category-menu__item_style_for-kids">
-              <a class="category-menu__button
-                        category-menu__button_style_for-kids
-                        button
-                        button_kind_link"
-                 href="#">
-                For kids
-              </a>
-            </li>
-            <li class="category-menu__item
-                       category-menu__item_style_accesories">
-              <a class="category-menu__button
-                        category-menu__button_style_accesories
-                        button
-                        button_kind_link"
-                 href="#">
-                Accesories
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <section class="content__featured-items">
-          <h2 class="content__title">
-            Featured Items
-          </h2>
-          <p class="content__text">
-            Shop for items based on what we featured in this week
-          </p>
-          <section class="content__product-block"
-                   aria-label="Block with product cards">
+        <section class="">
+          <div class="content__product-block">
             <figure class="product-card">
               <img src="images/item-1.jpg"
                    height="420"
@@ -530,194 +588,12 @@
                 </a>
               </figcaption>
             </figure>
-            <figure class="product-card">
-              <img src="images/item-4.jpg"
-                   height="420"
-                   width="360"
-                   alt="item 1">
-              <figcaption class="product-card__info">
-                <h3 class="product-card__name">
-                  Ellery x m'o capsule
-                </h3>
-                <p class="product-card__description">
-                  Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams
-                  up with Moda Operandi.
-                </p>
-                <p class="product-card__price">
-                  $52.00
-                </p>
-                <a class="product-card__button
-                          button
-                          button_kind_link"
-                   href="#">
-                  Go to this item
-                </a>
-                <a class="product-card__button_cart
-                          button
-                          button_kind_link"
-                   href="#">
-                  <svg class="product-card__icon_cart"
-                       fill="none"
-                       height="23.97"
-                       viewbox="0 0 32 29"
-                       width="25.99"
-                       xmlns="http://www.w3.org/2000/svg">
-                    <use class="product-card__icon_cart
-                                product-card__icon_cart_color_white"
-                         href="#icon-cart"></use>
-                  </svg>
-                  Add to Cart
-                </a>
-              </figcaption>
-            </figure>
-            <figure class="product-card">
-              <img src="images/item-5.jpg"
-                   height="420"
-                   width="360"
-                   alt="item 1">
-              <figcaption class="product-card__info">
-                <h3 class="product-card__name">
-                  Ellery x m'o capsule
-                </h3>
-                <p class="product-card__description">
-                  Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams
-                  up with Moda Operandi.
-                </p>
-                <p class="product-card__price">
-                  $52.00
-                </p>
-                <a class="product-card__button
-                          button
-                          button_kind_link"
-                   href="#">
-                  Go to this item
-                </a>
-                <a class="product-card__button_cart
-                          button
-                          button_kind_link"
-                   href="#">
-                  <svg class="product-card__icon_cart"
-                       fill="none"
-                       height="23.97"
-                       viewbox="0 0 32 29"
-                       width="25.99"
-                       xmlns="http://www.w3.org/2000/svg">
-                    <use class="product-card__icon_cart
-                                product-card__icon_cart_color_white"
-                         href="#icon-cart"></use>
-                  </svg>
-                  Add to Cart
-                </a>
-              </figcaption>
-            </figure>
-            <figure class="product-card">
-              <img src="images/item-6.jpg"
-                   height="420"
-                   width="360"
-                   alt="item 1">
-              <figcaption class="product-card__info">
-                <h3 class="product-card__name">
-                  Ellery x m'o capsule
-                </h3>
-                <p class="product-card__description">
-                  Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams
-                  up with Moda Operandi.
-                </p>
-                <p class="product-card__price">
-                  $52.00
-                </p>
-                <a class="product-card__button
-                          button
-                          button_kind_link"
-                   href="#">
-                  Go to this item
-                </a>
-                <a class="product-card__button_cart
-                          button
-                          button_kind_link"
-                   href="#">
-                  <svg class="product-card__icon_cart"
-                       fill="none"
-                       height="23.97"
-                       viewbox="0 0 32 29"
-                       width="25.99"
-                       xmlns="http://www.w3.org/2000/svg">
-                    <use class="product-card__icon_cart
-                                product-card__icon_cart_color_white"
-                         href="#icon-cart"></use>
-                  </svg>
-                  Add to Cart
-                </a>
-              </figcaption>
-            </figure>
-          </section>
-          <a class="content__button
-                    content__button_style_catalog
-                    button
-                    button_kind_link"
-             href="#">
-            Browse All Product
-          </a>
+          </div>
         </section>
       </div>
     </section>
     <footer class="wrapper__footer
                    footer">
-      <div class="footer__footer-top">
-        <div class="footer__container
-                    footer__container_flexibility_flex">
-          <nav class="service-menu"
-               aria-label="service menu">
-            <ul class="service-menu__list">
-              <li class="service-menu__item">
-                <a class="service-menu__button
-                          button
-                          button_kind_link"
-                   href="#">
-                  <img src="images/delivery_button.svg"
-                       alt="">
-                  <h2 class="service-menu__button-title">
-                    Free Delivery
-                  </h2>
-                  <p class="service-menu__button-text">
-                    Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.
-                  </p>
-                </a>
-              </li>
-              <li class="service-menu__item">
-                <a class="service-menu__button
-                          button
-                          button_kind_link"
-                   href="#">
-                  <img src="images/discounts_button.svg"
-                       alt="">
-                  <h2 class="service-menu__button-title">
-                    Sales &amp; discounts
-                  </h2>
-                  <p class="service-menu__button-text">
-                    Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.
-                  </p>
-                </a>
-              </li>
-              <li class="service-menu__item">
-                <a class="service-menu__button
-                          button
-                          button_kind_link"
-                   href="#">
-                  <img src="images/quality_button.svg"
-                       alt="">
-                  <h2 class="service-menu__button-title">
-                    Quality assurance
-                  </h2>
-                  <p class="service-menu__button-text">
-                    Worldwide delivery on all. Authorit tively morph next-generation innov tion with extensive models.
-                  </p>
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </div>
       <div class="footer__footer-middle">
         <div class="footer__container">
           <section class="footer__subscribe

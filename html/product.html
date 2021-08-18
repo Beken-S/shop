@@ -264,38 +264,47 @@
       <section class="product"
                aria-label="product card">
         <div class="carousel">
-          <div class="carousel-inner">
-            <div class="carousel_item">
-              <picture class="carousel_picture">
+          <div class="carousel__inner">
+            <div class="carousel__item">
+              <picture class="carousel__img-box">
                 <!-- <source srcset="images/item-photo-1_251px.jpg"
                         media="(min-width: 767px)"> -->
                 <source srcset="images/item-photo-1_466px.jpg"
                         media="(max-width: 1408px)">
-                <img src="images/item-photo-1_597px.jpg"
+                <img class="carousel__img"
+                     src="images/item-photo-1_597px.jpg"
                      alt="item photo">
               </picture>
             </div>
           </div>
-          <button class="carousel-control prev"
+          <button class="carousel__button
+                         carousel__button_prev
+                         button
+                         button_kind_icon"
                   type="button">
             <svg width="13"
                  height="23"
                  viewBox="0 0 13 23"
                  fill="none"
                  xmlns="http://www.w3.org/2000/svg">
-              <path class="icon-color"
+              <path class="button__icon
+                           button__icon_style_main"
                     d="M12.6998 3.7499L4.9498 11.4999L12.6998 19.2499L11.1498 22.3499L0.299805 11.4999L11.1498 0.649902L12.6998 3.7499Z" />
             </svg>
             Previous
           </button>
-          <button class="carousel-control next"
+          <button class="carousel__button
+                        carousel__button_next
+                        button
+                        button_kind_icon"
                   type="button">
             <svg width="13"
                  height="23"
                  viewBox="0 0 13 23"
                  fill="none"
                  xmlns="http://www.w3.org/2000/svg">
-              <path class="icon-color"
+              <path class="button__icon
+                           button__icon_style_main"
                     d="M12.6998 3.7499L4.9498 11.4999L12.6998 19.2499L11.1498 22.3499L0.299805 11.4999L11.1498 0.649902L12.6998 3.7499Z"
                     transform="rotate(180 6.5 11.5)" />
             </svg>
