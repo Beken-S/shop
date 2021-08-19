@@ -1,0 +1,36 @@
+//Шрифт
+@mixin font(
+  $size: $site-font-size,
+  $weight: $site-font-weight,
+  $color: $site-font-color,
+  $line-height: $site-line-height,
+  $family: $site-font-family
+) {
+  font: {
+    weight: $weight;
+    size: $size;
+    family: $family;
+  }
+  line-height: $line-height;
+  color: $color;
+}
+@mixin font-null {
+  font: {
+    size: 0;
+  }
+  line-height: 0;
+}
+
+//Центрирующий контейнер
+@mixin container($width, $padding) {
+  max-width: $width;
+  margin: 0 auto;
+  padding: 0 $padding;
+}
+
+@mixin stretching {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
