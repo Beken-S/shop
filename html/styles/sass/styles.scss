@@ -4,15 +4,9 @@
 
 @import "vars";
 @import "mixins";
-
-@function lin-interpol($f1, $f2, $x1, $x2, $f) {
-  $a: math.div($x2 - $x1, $f2 - $f1);
-  $b: $f1 * $a;
-  @return #{"#{$x1}px + 100% * #{$a} - #{$b}px"};
-}
+@import "functions";
 
 // || ОБЩИЕ КЛАССЫ
-
 // Кнопоки
 .button {
   display: block;
@@ -23,6 +17,7 @@
     border: none;
   }
   &_kind_link {
+    box-sizing: content-box;
     text-decoration: none;
   }
   &_addition_cart-item-count {
@@ -46,6 +41,10 @@
       fill: #e8e8e8;
       transition: fill 0.4s;
     }
+    &_style_reverse {
+      fill: #f16d7f;
+      transition: fill 0.4s;
+    }
     &_style_stroke {
       stroke: #6f6e6e;
       transition: stroke 0.4s;
@@ -58,6 +57,9 @@
       &_style_main {
         fill: $color-hover;
       }
+      &_style_reverse {
+        fill: white;
+      }
       &_style_stroke {
         stroke: $color-hover;
       }
@@ -67,6 +69,9 @@
     outline: none;
     .button__icon {
       fill: $color-focus;
+      &_style_reverse {
+        fill: white;
+      }
       &_style_main {
         fill: $color-focus;
       }
@@ -87,6 +92,9 @@
     @include font($size: 14px);
     background: #e1e1e1;
   }
+  &_type_quantity {
+    width: 100%;
+  }
   &_style_transparent {
     opacity: 0;
     transition: opacity 0.4s;
@@ -96,6 +104,9 @@
     &:focus {
       opacity: 1;
     }
+  }
+  &_style_quantity {
+    @include font($color: #6f6e6e);
   }
 }
 
@@ -419,10 +430,6 @@
     justify-content: center;
   }
   &__product-block {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 360px);
-    justify-content: center;
-    grid-gap: 30px;
     margin: 48px 0;
   }
   &__title {
@@ -664,6 +671,24 @@
   }
 }
 
+// Блок для карточек товаров
+.product-block {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 360px);
+  justify-content: center;
+  grid-gap: 30px;
+  &_style_odd-collapse {
+    @media (max-width: $container-width + 50px) {
+      .product-card {
+        &:last-of-type:not(.product-card:nth-child(even)) {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+// Блок предпросмотра товара
 .product-preview {
   position: relative;
   display: flex;
@@ -680,23 +705,29 @@
       padding-bottom: math.div(100% * 777, 1600);
     }
   }
-  &__selection {
+  &__selection-form {
     position: relative;
     box-sizing: border-box;
     width: 100%;
     min-height: 601px;
     margin-top: -65px;
+    padding: 65px;
     max-width: $container-width;
-    border: 1px solid black;
+    border: 1px solid #eaeaea;
     @media (max-width: 1600px) {
       margin-top: calc(#{lin-interpol(1660, 1284.942, -65, 0, 100%)});
     }
     @media (max-width: 1300px) {
       margin-top: -1px;
     }
+    @media (max-width: 1141px) {
+      border-left: none;
+      border-right: none;
+    }
   }
 }
 
+// Карусель
 .carousel {
   position: relative;
   width: 100%;
@@ -753,80 +784,231 @@
   }
 }
 
-.selection {
+// Форма для выбора характеристик товара
+.selection-form {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: white;
   &__container {
-    max-width: 555px;
+    flex: 1 1 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 555px;
   }
   &__title {
-    margin: 65px 0 12px 0;
+    margin-top: 0;
+    margin-bottom: 17px;
     @include font($weight: 300, $color: #f16d7f);
     text-transform: uppercase;
     text-align: center;
+    &_style_divider {
+      &::after {
+        content: "";
+        display: block;
+        width: 63px;
+        height: 3px;
+        margin: 15px auto 0 auto;
+        background: #ef5b70;
+      }
+    }
   }
   &__subtitle {
-    margin: 12px 0 48px 0;
+    margin-top: 0;
+    margin-bottom: 56px;
     @include font($weight: 300, $size: 18px, $color: #4d4d4d);
     text-transform: uppercase;
     text-align: center;
   }
   &__text {
+    margin-top: 0;
+    margin-bottom: 40px;
     @include font($weight: 300, $color: #5e5e5e);
     text-align: center;
     &_style_price {
+      margin-bottom: 65px;
       @include font($weight: 300, $size: 24px, $color: #ef5b70);
       text-align: center;
     }
   }
-  &__divider {
-    border: none;
-    &_style_collection {
-      width: 63px;
-      height: 3px;
-      background: #ef5b70;
-    }
-    &_style_parameter {
-      width: 100%;
-      height: 1px;
-      background: #eaeaea;
-    }
-  }
   &__product-parameters {
+    flex: 1 1 auto;
     display: flex;
-    margin: 65px 0 48px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid #eaeaea;
   }
   &__details {
-    margin: 0 23px;
+    box-sizing: border-box;
   }
   &__button {
+    align-self: flex-end;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: content-box;
+    padding: 15px 57px 15px 24px;
+    @include font($size: 16px, $color: #f16d7f);
+    border: 1px solid #f16d7f;
+    background: white;
+    transition: background-color 0.4s, color 0.4s;
+    &:hover {
+      background: #f16d7f;
+      color: white;
+    }
+  }
+  &__icon {
+    margin-right: 23px;
   }
 }
 
+// Details
 .details {
-  & > summary {
-    list-style: none;
-  }
-  margin: 0 23px;
-  &__summary {
+  position: relative;
+  margin: 0;
+  padding: 10px 10px;
+  &_style_main {
     @include font($color: #6f6e6e);
     text-transform: uppercase;
-    &::after {
-      content: "\f078";
-      font-family: "Font Awesome 5 Free";
-      font-weight: 700;
-      margin-left: 9px;
+    & > summary {
+      list-style: none;
+    }
+  }
+  &__summary {
+    display: flex;
+    align-items: center;
+    &_style_main {
+      &::after {
+        content: "";
+        display: block;
+        width: 10px;
+        height: 5px;
+        margin-left: 9px;
+        background: url(../images/arrow_1.svg) no-repeat right;
+        transition: 0.4s ease;
+      }
+    }
+  }
+  &__fild {
+    position: absolute;
+    box-sizing: border-box;
+    min-width: calc(100% - 20px);
+    &_style_main {
+      margin-top: 5px;
+      padding: 9px 9px;
+      box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.31);
+      background-color: white;
+      opacity: 0;
+      transition: opacity 0.4s;
     }
   }
   &[open] {
-    & .details__summary::after {
-      content: "\f077";
+    & .details__summary_style_main::after {
+      transform: rotate(180deg);
     }
+    & .details__fild_style_main {
+      opacity: 1;
+    }
+    &:hover {
+      .details__summary_style_main::after {
+        background: url(../images/arrow_2.svg) no-repeat right;
+      }
+    }
+  }
+  &:hover {
+    .details__summary_style_main {
+      color: $color-hover;
+    }
+    .details__summary_style_main::after {
+      background: url(../images/arrow_2.svg) no-repeat right;
+    }
+  }
+}
+
+// Стилизованный radio box
+.castom-radio {
+  &_hidden {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+  &__label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 9px;
+    &_style_main {
+      &::before {
+        content: "";
+        display: block;
+        box-sizing: border-box;
+        width: 13px;
+        height: 13px;
+        margin-right: 9px;
+        border: 1px solid #ebebeb;
+        background: white;
+        transition: all 0.4s ease;
+      }
+    }
+  }
+  &__list {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+  }
+  &__item {
+    margin: 0;
+    &:last-of-type {
+      .castom-radio__label {
+        padding-bottom: 0;
+      }
+    }
+  }
+  &:checked {
+    & + .castom-radio__label_style_main {
+      &::before {
+        border: 1px solid $color-hover;
+        background: $color-hover;
+      }
+    }
+  }
+  &:focus {
+    & + .castom-radio__label_style_main {
+      &::before {
+        border: 1px solid $color-hover;
+        background: $color-hover;
+      }
+    }
+  }
+  &:active {
+    & + .castom-radio__label_style_main {
+      &::before {
+        border: 1px solid lighten($color-hover, 20%);
+        background: lighten($color-hover, 20%);
+      }
+    }
+  }
+}
+
+// Иконка для цвета одежды
+.i-color {
+  display: block;
+  box-sizing: border-box;
+  width: 11px;
+  height: 11px;
+  margin-right: 6px;
+  border-radius: 11px;
+  &_black {
+    background-color: black;
+  }
+  &_blue {
+    background-color: #0087df;
+  }
+  &_white {
+    background-color: white;
+    border: 1px solid #8f8e8e;
   }
 }
 
@@ -838,7 +1020,7 @@
   }
   &__footer-middle {
     position: relative;
-    background: url("../images/background_footer.jpg") no-repeat left / cover;
+    background: url("../images/background_footer.jpg") no-repeat left 90% / cover;
   }
   &__footer-bottom {
     background: #222224;
@@ -1028,109 +1210,6 @@
     color: black;
     transition: color 0.4s;
   }
-}
-
-/* ========== Страница Product ========== */
-
-/*  | Хлебные крошки */
-
-.product {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/*  | Карусель */
-
-.product-description {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: absolute;
-  bottom: 0;
-  box-sizing: border-box;
-  width: 100%;
-  height: 601px;
-  max-width: 1141px;
-  background: #fff;
-  border: 1px solid #eaeaea;
-  font: 300 14px/1.2 "Lato";
-  color: #5e5e5e;
-}
-
-.product-description_wrapper {
-  max-width: 555px;
-  text-align: center;
-}
-
-.product_collection {
-  margin: 65px 0 12px 0;
-  text-transform: uppercase;
-  font: 300 14px/1.2 "Lato";
-  color: #f16d7f;
-}
-
-.divider_collection {
-  margin: 0 auto;
-  width: 63px;
-  height: 3px;
-  border: none;
-  background: #ef5b70;
-}
-
-.product_name {
-  margin: 12px 0 48px 0;
-  text-transform: uppercase;
-  font: 300 18px/1.2 "Lato";
-  color: #4d4d4d;
-}
-
-.price {
-  margin: 32px 0 65px 0;
-  font: 300 24px/1.2 "Lato";
-  color: #ef5b70;
-}
-
-.divider_parameters {
-  margin: 0 auto;
-  height: 1px;
-  border: none;
-  background: #eaeaea;
-}
-
-.product_parameters {
-  display: flex;
-  margin: 65px 0 48px 0;
-}
-
-.parameter {
-  margin: 0 23px;
-}
-
-.parameter summary {
-  text-transform: uppercase;
-}
-
-.parameter > summary {
-  list-style: none;
-}
-
-.parameter summary::after {
-  content: "\f078";
-  font-family: "Font Awesome 5 Free";
-  font-weight: 700;
-  margin-left: 9px;
-}
-
-.parameter[open] summary::after {
-  content: "\f077";
-}
-
-.product-button_cart {
-  display: block;
-  box-sizing: border-box;
-  padding: 15px 57px 9px 24px;
-  border: 1px solid #ff6a6a;
 }
 
 .similar-items {
