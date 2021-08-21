@@ -366,8 +366,9 @@
                     content"
              aria-label="main content">
 
-      <section class="product-preview">
-        <section class="product-preview__carousel
+      <section class="product-preview"
+               aria-label="product preview">
+        <div class="product-preview__carousel
                     carousel">
           <div class="carousel__inner">
             <div class="carousel__item">
@@ -415,7 +416,7 @@
             </svg>
             Next
           </button>
-        </section>
+        </div>
         <section class="product-preview__selection-form
                         selection-form">
           <div class="selection-form__container">
@@ -435,7 +436,8 @@
                       selection-form__text_style_price">
               $561
             </p>
-            <form class="selection-form__product-parameters">
+            <form class="selection-form__product-parameters"
+                  action="#">
               <details class="selection-form__details
                               details
                               details_style_main">
@@ -443,9 +445,10 @@
                                 details__summary_style_main">
                   Choose color
                 </summary>
-                <fildset class="details__fild
+                <div class="details__fild
                                 details__fild_style_main">
-                  <ul class="castom-radio__list">
+                  <ul class="castom-radio
+                             castom-radio__list">
                     <li class="castom-radio__item">
                       <input class="castom-radio
                                     castom-radio_hidden"
@@ -490,7 +493,7 @@
                       </label>
                     </li>
                   </ul>
-                </fildset>
+                </div>
               </details>
               <details class="selection-form__details
                               details
@@ -499,9 +502,10 @@
                                 details__summary_style_main">
                   Choose size
                 </summary>
-                <fildset class="details__fild
+                <div class="details__fild
                                 details__fild_style_main">
-                  <ul class="castom-radio__list">
+                  <ul class="castom-radio
+                             castom-radio__list">
                     <li class="castom-radio__item">
                       <input class="castom-radio
                                     castom-radio_hidden"
@@ -556,7 +560,7 @@
                       </label>
                     </li>
                   </ul>
-                </fildset>
+                </div>
               </details>
               <details class="selection-form__details
                               details
@@ -565,7 +569,7 @@
                                 details__summary_style_main">
                   Quantity
                 </summary>
-                <fildset class="details__fild
+                <div class="details__fild
                                 details__fild_style_main">
                   <input class="input
                                 input_type_quantity
@@ -576,7 +580,7 @@
                          value="1"
                          min="1"
                          required>
-                </fildset>
+                </div>
               </details>
               <button class="selection-form__button
                              button"
@@ -600,56 +604,17 @@
         </section>
       </section>
       <div class="content__container">
-        <section class="content__featured-items">
+        <section class="content__featured-items"
+                 aria-label="featured items">
           <section class="content__product-block
                           product-block
                           product-block_style_odd-collapse"
                    aria-label="Block with product cards">
             <figure class="product-card">
-              <img src="images/item-1.jpg"
+              <img src="images/item-4.jpg"
                    height="420"
                    width="360"
-                   alt="item 1">
-              <figcaption class="product-card__info">
-                <h3 class="product-card__name">
-                  Ellery x m'o capsule
-                </h3>
-                <p class="product-card__description">
-                  Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams
-                  up with Moda Operandi.
-                </p>
-                <p class="product-card__price">
-                  $52.00
-                </p>
-                <a class="product-card__button
-                          button
-                          button_kind_link"
-                   href="product.html">
-                  Go to this item
-                </a>
-                <a class="product-card__button_cart
-                          button
-                          button_kind_link"
-                   href="#">
-                  <svg class="product-card__icon_cart"
-                       fill="none"
-                       height="23.97"
-                       viewbox="0 0 32 29"
-                       width="25.99"
-                       xmlns="http://www.w3.org/2000/svg">
-                    <use class="product-card__icon_cart
-                                product-card__icon_cart_color_white"
-                         href="#icon-cart"></use>
-                  </svg>
-                  Add to Cart
-                </a>
-              </figcaption>
-            </figure>
-            <figure class="product-card">
-              <img src="images/item-2.jpg"
-                   height="420"
-                   width="360"
-                   alt="item 1">
+                   alt="item 4">
               <figcaption class="product-card__info">
                 <h3 class="product-card__name">
                   Ellery x m'o capsule
@@ -689,7 +654,47 @@
               <img src="images/item-3.jpg"
                    height="420"
                    width="360"
-                   alt="item 1">
+                   alt="item 3">
+              <figcaption class="product-card__info">
+                <h3 class="product-card__name">
+                  Ellery x m'o capsule
+                </h3>
+                <p class="product-card__description">
+                  Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym Ellery teams
+                  up with Moda Operandi.
+                </p>
+                <p class="product-card__price">
+                  $52.00
+                </p>
+                <a class="product-card__button
+                          button
+                          button_kind_link"
+                   href="product.html">
+                  Go to this item
+                </a>
+                <a class="product-card__button_cart
+                          button
+                          button_kind_link"
+                   href="#">
+                  <svg class="product-card__icon_cart"
+                       fill="none"
+                       height="23.97"
+                       viewbox="0 0 32 29"
+                       width="25.99"
+                       xmlns="http://www.w3.org/2000/svg">
+                    <use class="product-card__icon_cart
+                                product-card__icon_cart_color_white"
+                         href="#icon-cart"></use>
+                  </svg>
+                  Add to Cart
+                </a>
+              </figcaption>
+            </figure>
+            <figure class="product-card">
+              <img src="images/item-6.jpg"
+                   height="420"
+                   width="360"
+                   alt="item 6">
               <figcaption class="product-card__info">
                 <h3 class="product-card__name">
                   Ellery x m'o capsule
