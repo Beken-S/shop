@@ -94,6 +94,11 @@
   }
   &_type_quantity {
     width: 100%;
+    padding: 9px;
+  }
+  &_type_from-to {
+    width: 80px;
+    padding: 0;
   }
   &_style_transparent {
     opacity: 0;
@@ -107,6 +112,13 @@
   }
   &_style_quantity {
     @include font($color: #6f6e6e);
+    box-sizing: border-box;
+    padding-left: 12px;
+  }
+  &_style_from-to {
+    @include font($color: #6f6e6e);
+    box-sizing: border-box;
+    padding-left: 12px;
   }
 }
 
@@ -183,7 +195,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    z-index: 3;
+    z-index: 4;
     height: 100%;
     @media (min-width: 1601px) {
       left: calc(50% + #{$container-width} / 2);
@@ -427,10 +439,9 @@
   &__featured-items {
     display: flex;
     flex-direction: column;
-    justify-content: center;
   }
   &__product-block {
-    margin: 48px 0;
+    margin-bottom: 48px;
   }
   &__title {
     margin: 6px 0;
@@ -439,7 +450,7 @@
     text-align: center;
   }
   &__text {
-    margin: 0;
+    margin: 0 0 48px 0;
     padding: 0 18px;
     @include font($size: 14px);
     text-align: center;
@@ -463,6 +474,10 @@
         color: white;
       }
     }
+  }
+  &__pagination {
+    align-self: center;
+    margin-bottom: 96px;
   }
 }
 
@@ -680,7 +695,7 @@
   &_style_odd-collapse {
     @media (max-width: $container-width + 50px) {
       .product-card {
-        &:last-of-type:not(.product-card:nth-child(even)) {
+        &:last-of-type:not(:nth-child(even)) {
           display: none;
         }
       }
@@ -842,6 +857,10 @@
   }
   &__details {
     box-sizing: border-box;
+    margin-right: 4px;
+    &:last-of-type {
+      margin-right: 0;
+    }
   }
   &__button {
     align-self: flex-end;
@@ -867,19 +886,39 @@
 // Details
 .details {
   position: relative;
-  margin: 0;
-  padding: 10px 10px;
   &_style_main {
+    //padding: 9px;
     @include font($color: #6f6e6e);
     text-transform: uppercase;
     & > summary {
       list-style: none;
     }
   }
+  &_style_accordion {
+    & > summary {
+      list-style: none;
+    }
+    &[open] {
+      background-color: white;
+      box-shadow: 6px 4px 35px -4px rgba(0, 0, 0, 0.21);
+    }
+  }
+  &_style_accordion-item {
+    @include font($color: #6f6e6e);
+    text-transform: uppercase;
+    background-color: white;
+    & > summary {
+      list-style: none;
+    }
+  }
   &__summary {
+    position: relative;
     display: flex;
     align-items: center;
+    outline: none;
+    transition: color 0.4s;
     &_style_main {
+      padding: 9px;
       &::after {
         content: "";
         display: block;
@@ -887,42 +926,97 @@
         height: 5px;
         margin-left: 9px;
         background: url(../images/arrow_1.svg) no-repeat right;
-        transition: 0.4s ease;
+        transition: all 0.4s ease;
+      }
+    }
+    &_style_filter {
+      padding: 9px;
+    }
+    &_style_accordion {
+      padding: 9px 17px;
+      @include font($weight: 600, $color: black);
+      text-transform: uppercase;
+    }
+    &_style_accordion-item {
+      padding: 8px 0 11px 16px;
+      border-bottom: 1px solid #ebebeb;
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        margin-bottom: -1px;
+        width: 5px;
+        background: #f16d7f;
+        transition: color 0.4s ease;
       }
     }
   }
   &__fild {
     position: absolute;
+    left: 0;
+    z-index: 2;
     box-sizing: border-box;
-    min-width: calc(100% - 20px);
+    min-width: 100%;
     &_style_main {
-      margin-top: 5px;
-      padding: 9px 9px;
+      margin-top: -4px;
       box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.31);
       background-color: white;
       opacity: 0;
       transition: opacity 0.4s;
     }
   }
+  &__icon {
+    &_style_main {
+      fill: black;
+      transition: fill 0.4s;
+    }
+  }
   &[open] {
-    & .details__summary_style_main::after {
+    & .details__icon {
+      &_style_main {
+        fill: $color-hover;
+      }
+    }
+    & > .details__summary_style_main::after {
       transform: rotate(180deg);
     }
-    & .details__fild_style_main {
+    & > .details__fild_style_main {
       opacity: 1;
     }
-    &:hover {
-      .details__summary_style_main::after {
-        background: url(../images/arrow_2.svg) no-repeat right;
-      }
+    & > .details__summary_style_main {
+      color: $color-hover;
+    }
+    & > .details__summary_style_main::after {
+      background: url(../images/arrow_2.svg) no-repeat right;
+    }
+    & > .details__summary_style_accordion {
+      color: $color-hover;
+    }
+    & > .details__summary_style_accordion-item {
+      color: $color-hover;
     }
   }
   &:hover {
-    .details__summary_style_main {
+    cursor: pointer;
+    & .details__icon {
+      &_style_main {
+        fill: $color-hover;
+      }
+    }
+    & > .details__summary_style_main {
       color: $color-hover;
     }
-    .details__summary_style_main::after {
+    & > .details__summary_style_main::after {
       background: url(../images/arrow_2.svg) no-repeat right;
+    }
+    & > .details__summary_style_accordion {
+      color: $color-hover;
+    }
+    & > .details__summary_style_accordion-item {
+      color: $color-hover;
     }
   }
 }
@@ -938,38 +1032,43 @@
     position: relative;
     display: flex;
     align-items: center;
-    padding: 9px;
+    padding: 4.5px 9px;
     &_style_main {
       &::before {
         content: "";
+        flex: 0 0 auto;
         display: block;
         box-sizing: border-box;
         width: 13px;
         height: 13px;
         margin-right: 9px;
+        color: white;
         border: 1px solid #ebebeb;
         background: white;
         transition: all 0.4s ease;
+      }
+      &:hover {
+        background-color: #f5f3f0;
+        cursor: pointer;
       }
     }
   }
   &__list {
     margin: 0;
-    padding-left: 0;
+    padding: 4.5px 0;
+    min-width: 100%;
     list-style: none;
   }
   &__item {
     margin: 0;
-    &:last-of-type {
-      .castom-radio__label {
-        padding-bottom: 0;
-      }
-    }
   }
   &:checked {
     & + .castom-radio__label_style_main {
       &::before {
-        border: 1px solid $color-hover;
+        content: "\2714";
+        @include font($size: 12px, $line-height: 12px, $color: white);
+        text-align: center;
+        border: 1px solid lighten($color-hover, 20%);
         background: $color-hover;
       }
     }
@@ -985,6 +1084,87 @@
   &:active {
     & + .castom-radio__label_style_main {
       &::before {
+        content: "\2714";
+        @include font($size: 12px, $line-height: 12px, $color: white);
+        text-align: center;
+        border: 1px solid lighten($color-hover, 20%);
+        background: lighten($color-hover, 20%);
+      }
+    }
+  }
+}
+
+// Стилизованный checkbox
+.castom-checkbox {
+  &_hidden {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+  &__label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 5.5px;
+    &_style_main {
+      @include font($color: #6f6e6e);
+      text-transform: capitalize;
+      transition: background-color 0.4s, color 0.2s;
+      &:hover {
+        background-color: #f5f3f0;
+        cursor: pointer;
+      }
+    }
+    &_style_square {
+      padding: 4.5px 9px;
+      &::before {
+        content: "";
+        flex: 0 0 auto;
+        display: block;
+        box-sizing: border-box;
+        width: 13px;
+        height: 13px;
+        margin-right: 9px;
+        color: white;
+        border: 1px solid #ebebeb;
+        background: white;
+        transition: all 0.4s ease;
+      }
+      &:hover {
+        background-color: #f5f3f0;
+        cursor: pointer;
+      }
+    }
+  }
+  &__list {
+    margin: 0;
+    padding: 4.5px 0;
+    min-width: 100%;
+    list-style: none;
+  }
+  &__item {
+    margin: 0;
+  }
+  &:checked {
+    & + .castom-checkbox__label_style_main {
+      color: $color-hover;
+    }
+    & + .castom-checkbox__label_style_square {
+      &::before {
+        content: "\2714";
+        @include font($size: 12px, $line-height: 12px, $color: white);
+        text-align: center;
+        border: 1px solid lighten($color-hover, 20%);
+        background: $color-hover;
+      }
+    }
+  }
+  &:active {
+    & + .castom-checkbox__label_style_square {
+      &::before {
+        content: "\2714";
+        @include font($size: 12px, $line-height: 12px, $color: white);
+        text-align: center;
         border: 1px solid lighten($color-hover, 20%);
         background: lighten($color-hover, 20%);
       }
@@ -1009,6 +1189,118 @@
   &_white {
     background-color: white;
     border: 1px solid #8f8e8e;
+  }
+}
+
+// Фильтр меню
+.filter-menu {
+  &__icon {
+    margin-left: 11px;
+  }
+  &__list {
+    margin: 0;
+    padding: 9px;
+    list-style: none;
+  }
+  &__item {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &:first-of-type {
+      margin-bottom: 9px;
+    }
+  }
+}
+
+// Аккордеон
+.accordion {
+  &__item {
+    margin: 18px 0;
+    &:first-of-type {
+      margin-top: 0;
+    }
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+  &__fild {
+    display: block;
+    box-sizing: border-box;
+    padding: 14px 12px 0 12px;
+  }
+}
+
+// Форма для фильтрации товаров
+.filter-form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 42px 0 64px 0;
+  &__filter-menu {
+    position: absolute;
+    z-index: 3;
+  }
+  &__product-properties {
+    display: flex;
+    align-self: center;
+  }
+  &__details {
+    box-sizing: border-box;
+    margin-right: 4px;
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+  &__accordion {
+    min-width: 360px;
+  }
+}
+
+// Пагинация
+.pagination {
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding-left: 0;
+    width: 284px;
+    height: 44px;
+    list-style: none;
+    border: 1px solid #ebebeb;
+    border-radius: 3px;
+  }
+  &__item {
+    &:first-child {
+    }
+    &:last-child {
+    }
+  }
+  &__button {
+    margin: 0;
+    padding: 11.5px 5px;
+    @include font($weight: 300, $size: 16px, $color: #c4c4c4);
+    transition: color 0.4s;
+    &_prev {
+      @include font-null;
+      padding: 14px 5px 14px 16px;
+    }
+    &_next {
+      @include font-null;
+      padding: 14px 16px 14px 5px;
+    }
+    &:hover {
+      color: $color-hover;
+    }
+    &:focus {
+      color: $color-hover;
+    }
+  }
+  &__icon {
+    fill: black;
+    transition: fill 0.4s;
   }
 }
 
