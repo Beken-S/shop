@@ -1304,6 +1304,48 @@
   }
 }
 
+// Корзина
+.cart {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: blanchedalmond;
+  &__subcontainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    width: math.div(100% * 122, 285);
+    height: 560px;
+    background-color: cornflowerblue;
+    @media (max-width: 1024px) {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+  &__products {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: math.div(100% * 163, 285);
+    height: 774px;
+    background-color: deeppink;
+    @media (max-width: 1024px) {
+      width: 100%;
+    }
+  }
+  &__get-a-quote {
+    flex: 0 0 360px;
+    background-color: greenyellow;
+  }
+  &__checkout {
+    flex: 0 0 360px;
+    background-color: yellow;
+  }
+  &__product-card {
+  }
+}
+
 // || ПОДВАЛ
 
 .footer {
