@@ -1,13 +1,11 @@
 @use "sass:math";
-
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
-
 @import "vars";
 @import "mixins";
 @import "functions";
 
 // || ОБЩИЕ КЛАССЫ
-// Кнопоки
+// Кнопки
 .button {
   display: block;
   box-sizing: border-box;
@@ -79,6 +77,7 @@
     }
   }
   &__icon {
+    transition: fill 0.4s;
     &_style_main {
       fill: #e8e8e8;
       transition: fill 0.4s;
@@ -126,14 +125,11 @@
 
 // Поля ввода
 .input {
+  display: block;
+  box-sizing: border-box;
   outline: none;
   border: none;
-  &_type_text {
-    padding: 10px 22px;
-    border-radius: 19px;
-    @include font($size: 14px);
-    background: #e1e1e1;
-  }
+  border-radius: 0.5px;
   &_type_quantity {
     width: 100%;
     padding: 9px;
@@ -152,15 +148,24 @@
       opacity: 1;
     }
   }
+  &_style_main {
+    padding: 13px 17px 16px 17px;
+    @include font($weight: 300, $size: 13px);
+    border: 1px solid #a4a4a4;
+  }
+  &_style_round {
+    padding: 10px 22px;
+    border-radius: 19px;
+    @include font($size: 14px);
+    background: #e1e1e1;
+  }
   &_style_quantity {
-    @include font($color: #6f6e6e);
-    box-sizing: border-box;
     padding-left: 12px;
+    @include font($color: #6f6e6e);
   }
   &_style_from-to {
-    @include font($color: #6f6e6e);
-    box-sizing: border-box;
     padding-left: 12px;
+    @include font($color: #6f6e6e);
   }
 }
 
@@ -484,6 +489,12 @@
   }
   &__product-block {
     margin-bottom: 48px;
+    &_style_product-page {
+      margin-bottom: 128px;
+    }
+  }
+  &__product-preview {
+    margin-bottom: 128px;
   }
   &__title {
     margin: 6px 0;
@@ -536,6 +547,7 @@
     flex: 1 1 $small-button-width;
     margin-right: math.div(100% * 30px, $container-width);
     list-style: none;
+    transition: transform 0.4s;
     &::after {
       content: "";
       display: block;
@@ -566,6 +578,9 @@
     &_style_accesories {
       background: url(../images/button_accesories.jpg) no-repeat center / cover;
     }
+    &:hover {
+      transform: scale(1.015);
+    }
   }
   &__button {
     position: absolute;
@@ -579,7 +594,7 @@
     text-align: center;
     text-transform: uppercase;
     background-color: rgba(33, 22, 22, 0.7);
-    transition: box-shadow 0.4s, background-color 0.4s;
+    transition: box-shadow 0.4s ease-in, background-color 0.4s ease-in;
     &_style_for-women {
       &::before {
         content: "30% off";
@@ -633,7 +648,7 @@
   min-height: $product-card-min-height;
   margin: 0;
   background: #f8f8f8;
-  transition: box-shadow 0.4s;
+  transition: box-shadow 0.4s ease-in, transform 0.4s ease-in;
   &::after {
     content: "";
     position: absolute;
@@ -683,7 +698,7 @@
     @include font($size: 14px, $color: white);
     border: 1px solid white;
     opacity: 0;
-    transition: opacity 0.4s;
+    transition: opacity 0.4s, border 0.2s;
     &:hover {
       border: 2.5px outset white;
     }
@@ -702,6 +717,7 @@
   }
   &:hover {
     box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
+    transform: scale(1.015);
     .product-card__button_cart {
       opacity: 1;
     }
@@ -1343,6 +1359,7 @@
     margin-bottom: 40px;
     overflow: hidden;
     filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
+    transition: transform 0.3s ease-in;
     &:last-of-type {
       margin-bottom: 72px;
     }
@@ -1351,6 +1368,9 @@
       display: block;
       box-sizing: border-box;
       padding-bottom: math.div(100% * 153, 326);
+    }
+    &:hover {
+      transform: scale(1.015);
     }
   }
   &__subcontainer {
@@ -1466,17 +1486,12 @@
     }
   }
   &__input {
-    outline: none;
     &_style_main {
-      box-sizing: border-box;
       width: 100%;
       margin-bottom: 20px;
-      padding: 13px 17px 16px 17px;
-      @include font($weight: 300, $size: 13px);
-      border: 1px solid #a4a4a4;
-      border-radius: 0;
     }
     &_style_quantity {
+      display: inline-block;
       margin-left: 24px;
       width: 42px;
       @include font($size: 18px, $color: #656565);
@@ -1524,6 +1539,122 @@
     margin-bottom: 17px;
     border: none;
     background: #e2e2e2;
+  }
+}
+
+//Форма регистрациии
+.registration {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 64px;
+  margin-bottom: 56px;
+  &__form {
+    flex: 0 0 360px;
+    margin-bottom: 40px;
+  }
+  &__description {
+    flex: 0 1 652px;
+    margin-left: 22px;
+    margin-bottom: 40px;
+  }
+  &__field {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    &_radio {
+      display: flex;
+      align-items: center;
+      margin: 31px 0 33px 0;
+    }
+  }
+  &__input {
+    width: 100%;
+    margin-bottom: 20px;
+    &:last-of-type {
+      margin-bottom: 0px;
+    }
+  }
+  &__legend {
+    margin-bottom: 20px;
+    @include font($weight: 300, $size: 16px, $color: #222222);
+  }
+  &__label {
+    margin-right: 20px;
+    @include font($weight: 300, $size: 11px);
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+  &__radio {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 17px;
+    height: 17px;
+    margin: 0 10px 0 0;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    border-radius: 8.5px;
+    border: 1px solid #a4a4a4;
+    transition: border 0.2s linear;
+    &::after {
+      content: "";
+      display: block;
+      width: 7px;
+      height: 7px;
+      background-color: $color-hover;
+      border-radius: 7px;
+      opacity: 0;
+    }
+    &:checked {
+      border: 2px solid $color-hover;
+      &::after {
+        opacity: 1;
+      }
+    }
+    &:active {
+      border: 2px solid $color-hover;
+    }
+  }
+  &__note {
+    margin-top: 15px;
+    margin-bottom: 39px;
+    @include font($weight: 300, $size: 13px, $color: #b1b1b1);
+  }
+  &__button {
+    display: flex;
+    align-items: center;
+    padding: 15.6px 29px;
+    @include font($color: white);
+    text-transform: uppercase;
+  }
+  &__icon {
+    margin-left: 20px;
+  }
+  &__list {
+    padding-left: 30px;
+    @include font($weight: 300, $size: 24px);
+    list-style-image: url(../images/list-icon.svg);
+  }
+  &__item {
+    margin: 0 0 16px 0;
+    padding-left: 12px;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+  &__title {
+    margin: 0 0 22px 0;
+    @include font($weight: 300, $size: 24px);
+    text-transform: uppercase;
+  }
+  &__text {
+    margin: 0 0 21px 0;
+    @include font($weight: 300, $size: 24px);
   }
 }
 
@@ -1713,18 +1844,4 @@
     color: black;
     transition: color 0.4s;
   }
-}
-
-.similar-items {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.similar-items_container {
-  margin: 48px 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 360px);
-  justify-content: center;
-  grid-gap: 30px;
 }
