@@ -11,6 +11,7 @@
 .button {
   display: block;
   box-sizing: border-box;
+  border-radius: 0;
   &_kind_icon {
     @include font-null;
     background: none;
@@ -20,7 +21,48 @@
     box-sizing: content-box;
     text-decoration: none;
   }
-  &_addition_cart-item-count {
+  &_style_white-pink {
+    border: 1px solid #ff6a6a;
+    background-color: white;
+    transition: background-color 0.4s, color 0.4s;
+    &:hover {
+      background-color: $color-hover;
+      color: white;
+    }
+    &:focus {
+      background-color: $color-hover;
+      color: white;
+    }
+  }
+  &_style_pink-white {
+    border: 1px solid #f16d7f;
+    background-color: #f16d7f;
+    transition: background-color 0.4s, color 0.4s;
+    &:hover {
+      background: white;
+      color: $color-hover;
+    }
+    &:focus {
+      background: white;
+      color: $color-hover;
+    }
+  }
+  &_style_white-black {
+    border: 1px solid #a4a4a4;
+    background-color: white;
+    transition: background-color 0.4s, border 0.4s, color 0.4s;
+    &:hover {
+      border: 1px solid $color-hover;
+      background-color: $color-hover;
+      color: white;
+    }
+    &:focus {
+      border: 1px solid $color-hover;
+      background-color: $color-hover;
+      color: white;
+    }
+  }
+  &__cart-item-count {
     $cart-icon-height: 38px;
     position: relative;
     &::after {
@@ -460,24 +502,16 @@
     margin-bottom: 95px;
     padding: 14px 38px;
     &_style_catalog {
-      border: 1px solid #f16d7f;
       @include font($size: 16px, $color: #f16d7f);
-      text-decoration: none;
-      background-color: white;
-      transition: background-color 0.4s, color 0.4s;
-      &:hover {
-        background-color: $color-hover;
-        color: white;
-      }
-      &:focus {
-        background-color: $color-focus;
-        color: white;
-      }
     }
   }
   &__pagination {
     align-self: center;
     margin-bottom: 96px;
+  }
+  &__cart {
+    margin-top: 96px;
+    margin-bottom: 64px;
   }
 }
 
@@ -866,17 +900,8 @@
     align-self: flex-end;
     display: flex;
     justify-content: center;
-    align-items: center;
-    box-sizing: content-box;
-    padding: 15px 57px 15px 24px;
+    padding: 14px 56px 8px 23px;
     @include font($size: 16px, $color: #f16d7f);
-    border: 1px solid #f16d7f;
-    background: white;
-    transition: background-color 0.4s, color 0.4s;
-    &:hover {
-      background: #f16d7f;
-      color: white;
-    }
   }
   &__icon {
     margin-right: 23px;
@@ -1310,14 +1335,31 @@
   height: 100%;
   display: flex;
   flex-wrap: wrap;
-  background-color: blanchedalmond;
+  align-items: flex-start;
+  &__wrapper {
+    position: relative;
+    max-height: 306px;
+    width: 100%;
+    margin-bottom: 40px;
+    overflow: hidden;
+    filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
+    &:last-of-type {
+      margin-bottom: 72px;
+    }
+    &::after {
+      content: "";
+      display: block;
+      box-sizing: border-box;
+      padding-bottom: math.div(100% * 153, 326);
+    }
+  }
   &__subcontainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
+    align-items: flex-start;
     width: math.div(100% * 122, 285);
-    height: 560px;
-    background-color: cornflowerblue;
+    margin-top: 17px;
     @media (max-width: 1024px) {
       width: 100%;
       justify-content: space-between;
@@ -1327,22 +1369,161 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    margin-bottom: 64px;
     width: math.div(100% * 163, 285);
-    height: 774px;
-    background-color: deeppink;
     @media (max-width: 1024px) {
       width: 100%;
     }
   }
   &__get-a-quote {
     flex: 0 0 360px;
-    background-color: greenyellow;
+    margin-bottom: 57px;
+    background-color: white;
   }
   &__checkout {
     flex: 0 0 360px;
-    background-color: yellow;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    box-sizing: border-box;
+    padding: 39px 44px 42px 44px;
+    background-color: #f5f3f3;
   }
   &__product-card {
+    position: absolute;
+    @include stretching;
+    display: flex;
+    width: 100%;
+    max-height: 306px;
+    margin: 0;
+    background-color: white;
+  }
+  &__product-description {
+    $padding: math.div(100% * 22, 652);
+    $padding-left: math.div(100% * 31, 652);
+    flex: 1 1 auto;
+    padding: $padding $padding $padding $padding-left;
+  }
+  &__product-name {
+    margin: 0 0 42px 0;
+    max-width: 262px;
+    @include font($size: 24px);
+    text-transform: uppercase;
+  }
+  &__list {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+    &_style_main {
+      @include font($size: 22px, $color: #575757);
+      text-transform: capitalize;
+    }
+    &_style_checkout {
+      margin-bottom: 21px;
+      text-align: right;
+      text-transform: uppercase;
+    }
+  }
+  &__item {
+    &_style_main {
+      margin-bottom: 6px;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+    &_style_checkout {
+      margin-bottom: 12px;
+      &:last-of-type {
+        margin-bottom: 0px;
+      }
+    }
+  }
+  &__label {
+    &_style_main {
+      color: #575757;
+    }
+    &_style_sub-total {
+      @include font($size: 11px, $color: #4a4a4a);
+    }
+    &_style_grand-total {
+      @include font($weight: 300, $size: 16px, $color: #222222);
+    }
+  }
+  &__value {
+    &_style_main {
+      color: #6f6e6e;
+    }
+    &_price {
+      color: #ef5b70;
+    }
+    &_style_sub-total {
+      margin-left: 26px;
+      @include font($size: 11px, $color: #4a4a4a);
+    }
+    &_style_grand-total {
+      margin-left: 26px;
+      @include font($weight: 700, $size: 16px, $color: #f16d7f);
+    }
+  }
+  &__input {
+    outline: none;
+    &_style_main {
+      box-sizing: border-box;
+      width: 100%;
+      margin-bottom: 20px;
+      padding: 13px 17px 16px 17px;
+      @include font($weight: 300, $size: 13px);
+      border: 1px solid #a4a4a4;
+      border-radius: 0;
+    }
+    &_style_quantity {
+      margin-left: 24px;
+      width: 42px;
+      @include font($size: 18px, $color: #656565);
+      text-align: center;
+      border: 1px solid #eaeaea;
+    }
+  }
+  &__product-img {
+    max-width: 100%;
+  }
+  &__title {
+    margin: 0 0 20px 0;
+    &_style_get-a-quote {
+      @include font($weight: 300, $size: 16px);
+      text-transform: uppercase;
+    }
+  }
+  &__button {
+    &_style_del {
+      position: absolute;
+      top: math.div(100% * 28, 652);
+      right: math.div(100% * 22, 652);
+      padding: math.div(100% * 10, 652);
+    }
+    &_style_main {
+      padding: 16px 40px;
+      @include font($weight: 300);
+      text-transform: uppercase;
+    }
+    &_style_get-a-quote {
+      padding: 10px 14px;
+      @include font($weight: 300, $size: 11px);
+      text-transform: uppercase;
+    }
+    &_style_checkout {
+      flex: 1 0 auto;
+      padding: 16px 41px;
+      @include font($size: 14px, $color: white);
+      text-transform: uppercase;
+    }
+  }
+  &__separator {
+    width: 100%;
+    height: 1px;
+    margin-bottom: 17px;
+    border: none;
+    background: #e2e2e2;
   }
 }
 
@@ -1430,7 +1611,6 @@
 }
 
 // Форма для подписки
-
 .subscribe {
   display: flex;
   justify-content: space-between;
@@ -1480,18 +1660,8 @@
   &__button {
     padding: 16px 22px;
     @include font($size: 14px, $color: white);
-    border: 1px solid #f16d7f;
     border-radius: 0 25px 25px 0;
     background: #f16d7f;
-    transition: background-color 0.4s, color 0.4s;
-    &:hover {
-      background: white;
-      color: $color-hover;
-    }
-    &:focus {
-      background: white;
-      color: $color-focus;
-    }
   }
   @media (max-width: 1111px) {
     flex-direction: column;
@@ -1505,7 +1675,6 @@
 }
 
 // Социальные сети
-
 .social {
   &__list {
     display: flex;
