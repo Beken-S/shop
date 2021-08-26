@@ -40,3 +40,30 @@
   -webkit-animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
   animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }
+
+// Медиа запросы
+@mixin bp-0 {
+  @media (max-width: 1600px) {
+    @content;
+  }
+}
+@mixin bp-1 {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+@mixin bp-2 {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+@mixin bp-3 {
+  @media (max-width: 374px) {
+    @content;
+  }
+}
+@mixin bp-4 {
+  @media (min-width: 752px) and (max-width: $container-width + 50px) {
+    @content;
+  }
+}
