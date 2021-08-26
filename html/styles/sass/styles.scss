@@ -1183,15 +1183,13 @@
   &__button_cart {
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
     z-index: 2;
+    left: 50%;
+    transform: translate(-50%, 0);
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: math.div(44.880952% * 420, 360);
-    margin-left: auto;
-    margin-right: auto;
     margin-bottom: 0;
     padding: 14px;
     @include font($size: 14px, $color: white);

@@ -1304,15 +1304,13 @@
 .product-card__button_cart {
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
   z-index: 2;
+  left: 50%;
+  transform: translate(-50%, 0);
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 52.3611106667%;
-  margin-left: auto;
-  margin-right: auto;
   margin-bottom: 0;
   padding: 14px;
   font-weight: normal;
