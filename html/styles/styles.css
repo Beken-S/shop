@@ -2176,17 +2176,18 @@
 }
 @media (max-width: 767px) {
   .registration {
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
   }
 }
 .registration__form {
   flex: 0 0 360px;
   margin-bottom: 40px;
 }
-@media (max-width: 374px) {
+@media (max-width: 767px) {
   .registration__form {
-    flex: 1 1 auto;
+    max-width: 360px;
   }
 }
 .registration__description {
@@ -2196,14 +2197,8 @@
 }
 @media (max-width: 767px) {
   .registration__description {
-    margin-left: auto;
-    margin-right: auto;
-    flex: 0 1 360px;
-  }
-}
-@media (max-width: 374px) {
-  .registration__description {
-    flex: 1 1 auto;
+    max-width: 360px;
+    margin-left: 0;
   }
 }
 .registration__field {
