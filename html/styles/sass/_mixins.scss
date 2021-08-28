@@ -37,7 +37,8 @@
 
 //Анимации
 @mixin zoom {
-  -webkit-animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  -webkit-animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1)
+    both;
   animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }
 
@@ -63,7 +64,7 @@
   }
 }
 @mixin bp-4 {
-  @media (min-width: 752px) and (max-width: $container-width + 50px) {
+  @media (min-width: 780px) and (max-width: $container-width + 50px) {
     @content;
   }
 }
